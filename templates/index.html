@@ -1,0 +1,2060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrafficOps | Enterprise Command Center</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Pro-Level Enterprise Palette */
+            --bg-body: #ecf0f3;
+            --bg-sidebar: #0b1121;
+            --bg-card: rgba(255, 255, 255, 0.7);
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: rgba(226, 232, 240, 0.6);
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            --success: #10b981;
+            --success-gradient: linear-gradient(135deg, #10b981, #059669);
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --danger-gradient: linear-gradient(135deg, #ef4444, #b91c1c);
+            --sidebar-width: 280px;
+            --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+            --glass-blur: blur(12px);
+        }
+
+        .dark-mode {
+            /* Cyberpunk / High-Tech Dashboard */
+            --bg-body: #050b14;
+            --bg-sidebar: #02060d;
+            --bg-card: rgba(15, 23, 42, 0.6);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: rgba(51, 65, 85, 0.5);
+            --accent: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #0ea5e9, #3b82f6);
+            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-glow: 0 0 25px rgba(14, 165, 233, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.05), transparent 25%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .glass {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-sidebar);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 50;
+            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .brand {
+            padding: 24px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            letter-spacing: -0.02em;
+        }
+
+        .brand i {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 24px 16px;
+            margin: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-item {
+            margin: 0;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: #94a3b8;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            transform: translateX(4px);
+        }
+
+        .nav-link.active {
+            background-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.75rem;
+            color: #64748b;
+            text-align: center;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 1600px;
+            /* Constrain ultra-wide screens */
+        }
+
+        /* --- Top Bar --- */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 10px;
+        }
+
+        .page-title h2 {
+            margin: 0;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+        }
+
+        .page-title p {
+            margin: 6px 0 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .btn-icon:hover {
+            background: var(--bg-body);
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .weather-widget {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin-right: 16px;
+        }
+
+        .weather-icon {
+            font-size: 1.5rem;
+            color: #f59e0b;
+        }
+
+        .weather-temp {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .weather-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-left: 20px;
+            border-left: 1px solid var(--border);
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+        }
+
+        /* --- View Sections (SPA Logic) --- */
+        .view-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Active State */
+        /* Active State */
+        .view-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Grid specific classes when active */
+        .dashboard-grid.active {
+            display: grid;
+        }
+
+        .analytics-grid.active {
+            display: grid;
+        }
+
+        .camera-grid.active {
+            display: grid;
+        }
+
+        .settings-view.active {
+            display: block;
+        }
+
+
+        /* --- Grids --- */
+        .dashboard-grid {
+            grid-template-columns: repeat(6, 1fr);
+            /* Changed to 6 columns for more metrics */
+            grid-template-rows: auto auto auto;
+            gap: 24px;
+        }
+
+        /* --- Widgets --- */
+        .widget {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+        }
+
+        .widget::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .widget:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .widget:hover::before {
+            opacity: 1;
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        /* --- Specific Items --- */
+        .stat-card {
+            grid-column: span 1;
+            padding: 24px;
+        }
+
+        .stat-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .stat-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        .chart-main {
+            grid-column: span 4;
+            /* Adjusted from 3 to 4 out of 6 */
+            min-height: 400px;
+        }
+
+        .log-panel {
+            grid-column: span 2;
+            /* Adjusted from 1 to 2 out of 6 */
+            grid-row: span 2;
+            max-height: 770px;
+        }
+
+        .chart-secondary {
+            grid-column: span 2;
+            /* 2 out of 6 */
+            min-height: 320px;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            grid-column: span 3;
+            /* 3 out of 6 */
+            padding: 20px;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .control-panel.manual-mode {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .control-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .control-btn {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-body);
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .control-btn.active {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+
+        .control-btn.danger.active {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+        }
+
+        .control-btn.danger:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Light Simulator */
+        .traffic-light-visual {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .light-bulb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #ccc;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s;
+        }
+
+        .light-bulb.red.on {
+            background: #ef4444;
+            box-shadow: 0 0 10px #ef4444;
+        }
+
+        .light-bulb.green.on {
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+        }
+
+        /* --- Analytics View --- */
+        .analytics-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .table-widget {
+            grid-column: span 2;
+            overflow-x: auto;
+            min-height: 400px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-secondary);
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        tr:hover td {
+            background: rgba(0, 0, 0, 0.01);
+        }
+
+        /* --- Settings --- */
+        .settings-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        /* --- Cameras --- */
+        .camera-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .camera-feed {
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            height: 360px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        .ticker-wrap {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 40;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .ticker-label {
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin: 0 16px;
+            font-weight: 800;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+            z-index: 2;
+        }
+
+        .ticker-content {
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .chart-main {
+                grid-column: span 4;
+            }
+
+            .log-panel {
+                grid-column: span 4;
+                grid-row: auto;
+                height: 350px;
+            }
+
+            .chart-secondary {
+                grid-column: span 2;
+            }
+
+            .control-panel {
+                grid-column: span 4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <i class="fas fa-network-wired"></i>
+            <span>TrafficOps</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a onclick="switchView('dashboard')" class="nav-link active" id="nav-dashboard">
+                    <i class="fas fa-th-large"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a onclick="switchView('analytics')" class="nav-link" id="nav-analytics">
+                    <i class="fas fa-chart-line"></i><span>Analytics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a onclick="switchView('cameras')" class="nav-link" id="nav-cameras">
+                    <i class="fas fa-video"></i><span>Live Cameras</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a onclick="switchView('control')" class="nav-link" id="nav-control">
+                    <i class="fas fa-gamepad"></i><span>Control Center</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a onclick="switchView('settings')" class="nav-link" id="nav-settings">
+                    <i class="fas fa-cog"></i><span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <p>System Online</p>
+            <p>Ver 10.0 (Ultimate)</p>
+        </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <main class="main-content" style="padding-top: 0;">
+
+        <!-- Global Security Ticker -->
+        <div class="ticker-wrap" style="margin: 0 -32px 24px -32px;">
+            <div class="ticker-label"><i class="fas fa-satellite-dish"></i> INTELLIGENCE</div>
+            <div class="ticker-content" id="global-ticker">
+                SYSTEM NOMINAL // AI MONITORING ACTIVE // ALL SENSORS ONLINE // SECTOR 7 TRAFFIC FLOW STABLE // WEATHER
+                PATTERNS CLEAR // NO ACTIVE THREATS DETECTED //
+            </div>
+        </div>
+
+        <header class="top-bar">
+            <div class="page-title">
+                <h2 id="page-heading">Traffic Overview</h2>
+                <p id="page-sub">Live monitoring</p>
+            </div>
+            <div class="actions">
+                <div class="weather-widget"><i class="fas fa-cloud-sun weather-icon"></i>
+                    <div>
+                        <div class="weather-temp">28°C</div>
+                        <div class="weather-desc">Partly Cloudy</div>
+                    </div>
+                </div>
+                <button class="btn-icon" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+                <div class="user-profile">
+                    <div class="avatar">DA</div>
+                    <div>
+                        <div style="font-weight: 600;">Admin User</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- === VIEW 1: DASHBOARD === -->
+        <div id="view-dashboard" class="view-section dashboard-grid active">
+
+            <div class="widget stat-card glass">
+                <div class="stat-icon bg-blue-light"
+                    style="background: rgba(59, 130, 246, 0.1); color: var(--accent); border: 1px solid rgba(59, 130, 246, 0.2);">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <h3 class="stat-value" id="vehicles">--</h3><span class="stat-label">Active Vehicles</span>
+            </div>
+            <div class="widget stat-card glass">
+                <div class="stat-icon"
+                    style="background: rgba(168, 85, 247, 0.1); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.2);">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3 class="stat-value" id="avg-speed">--</h3><span class="stat-label">Avg Speed (km/h)</span>
+            </div>
+            <div class="widget stat-card glass">
+                <div class="stat-icon"
+                    style="background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3 class="stat-value" id="carbon-saved">0.00</h3><span class="stat-label">Carbon Offset (Tons)</span>
+            </div>
+            <div class="widget stat-card glass">
+                <div class="stat-icon"
+                    style="background: rgba(245, 158, 11, 0.1); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.2);">
+                    <i class="fas fa-wind"></i>
+                </div>
+                <h3 class="stat-value" id="pollution">--</h3><span class="stat-label">Air Quality (AQI)</span>
+            </div>
+            <div class="widget stat-card glass">
+                <div class="stat-icon"
+                    style="background: rgba(239, 68, 68, 0.1); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.2);">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+                <h3 class="stat-value" id="noise">--</h3><span class="stat-label">Noise (dB)</span>
+            </div>
+            <div class="widget stat-card glass">
+                <div class="stat-icon"
+                    style="background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <i class="fas fa-traffic-light"></i>
+                </div>
+                <h3 class="stat-value" id="status"
+                    style="font-size: 1.8rem; text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);">--</h3><span
+                    class="stat-label">Overall State</span>
+            </div>
+
+            <div class="widget chart-main">
+                <div class="widget-header">
+                    <div class="widget-title"><i class="fas fa-chart-bar" style="color: var(--accent);"></i> Real-Time
+                        Density</div><span class="badge badge-green">LIVE</span>
+                </div>
+                <div style="flex: 1; position: relative;"><canvas id="densityChart"></canvas></div>
+            </div>
+
+            <!-- Live Logs -->
+            <div class="widget log-panel">
+                <div class="widget-header">
+                    <div class="widget-title"><i class="fas fa-history" style="color: var(--warning);"></i> Event Stream
+                    </div>
+                </div>
+                <div class="log-container" id="log-container"></div>
+            </div>
+
+            <!-- Traffic Control -->
+            <div class="widget control-panel" id="controlPanel">
+                <div class="widget-header">
+                    <div class="widget-title"><i class="fas fa-tasks" style="color: #6366f1;"></i> Signal Controller
+                    </div>
+                </div>
+                <div class="control-grid">
+                    <div class="control-btn" id="btn-auto" onclick="setMode('AUTO')"><i class="fas fa-robot"></i> Auto
+                        Mode</div>
+                    <div class="control-btn" id="btn-manual" onclick="setMode('MANUAL')"><i
+                            class="fas fa-hand-paper"></i> Manual Mode</div>
+                </div>
+                <div style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div style="display:flex; justify-content: space-between; align-items: center; padding: 10px; background: var(--bg-body); border-radius: 8px; cursor: pointer;"
+                        onclick="toggleLight('A')">
+                        <span style="font-weight: 500;">Junction A <span id="timer-ds-A"
+                                style="color:var(--text-secondary); font-size:0.8rem;"></span></span>
+                        <div class="traffic-light-visual" id="light-A">
+                            <div class="light-bulb red"></div>
+                            <div class="light-bulb green"></div>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content: space-between; align-items: center; padding: 10px; background: var(--bg-body); border-radius: 8px; cursor: pointer;"
+                        onclick="toggleLight('B')">
+                        <span style="font-weight: 500;">Junction B <span id="timer-ds-B"
+                                style="color:var(--text-secondary); font-size:0.8rem;"></span></span>
+                        <div class="traffic-light-visual" id="light-B">
+                            <div class="light-bulb red"></div>
+                            <div class="light-bulb green"></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid var(--border); padding-top: 15px;">
+                    <div class="control-btn" id="btn-rec-start" onclick="setLogging(true)">
+                        <i class="fas fa-play-circle"></i> REC Start
+                    </div>
+                    <div class="control-btn" id="btn-rec-stop" onclick="setLogging(false)">
+                        <i class="fas fa-stop-circle"></i> REC Stop
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget chart-secondary">
+                <div class="widget-header">
+                    <div class="widget-title">Pollution Trend</div>
+                </div>
+                <div style="flex: 1;"><canvas id="pollutionChart"></canvas></div>
+            </div>
+            <div class="widget chart-secondary">
+                <div class="widget-header">
+                    <div class="widget-title">Vehicle Types</div>
+                </div>
+                <div style="flex: 1;"><canvas id="typeChart"></canvas></div>
+            </div>
+        </div>
+
+        <!-- === VIEW 1.5: CONTROL CENTER (NEW) === -->
+        <div id="view-control" class="view-section">
+            <div class="dashboard-grid active"> <!-- Reuse grid layout -->
+
+                <!-- 1. Master Control -->
+                <div class="widget" style="grid-column: span 2;">
+                    <div class="widget-header">
+                        <div class="widget-title"><i class="fas fa-robot"></i> System Mode</div>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; height:100%;">
+                        <button id="cc-btn-auto" class="control-btn" onclick="setMode('AUTO')"
+                            style="font-size:1.2rem; flex-direction:column; gap:10px; height:120px;">
+                            <i class="fas fa-microchip fa-2x"></i> AUTO PILOT
+                        </button>
+                        <button id="cc-btn-manual" class="control-btn" onclick="setMode('MANUAL')"
+                            style="font-size:1.2rem; flex-direction:column; gap:10px; height:120px;">
+                            <i class="fas fa-user-shield fa-2x"></i> MANUAL OVERRIDE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. Live Intersection Map (Pro Level) -->
+                <div class="widget" style="grid-column: span 2; padding: 0;">
+                    <div class="widget-header" style="padding: 24px 24px 0 24px;">
+                        <div class="widget-title"><i class="fas fa-map-marked-alt text-accent"></i> Live Intersection
+                            Map</div>
+                        <span class="badge badge-green" style="animation: pulse 2s infinite;">SYNCED</span>
+                    </div>
+                    <div class="intersection-map-container">
+                        <div class="intersection-map">
+                            <!-- Road Background -->
+                            <div class="road-h">
+                                <div class="lane-divider-h"></div>
+                            </div>
+                            <div class="road-v">
+                                <div class="lane-divider-v"></div>
+                            </div>
+
+                            <!-- Junction A (Center-Left) -->
+                            <div class="map-junction map-junction-A" onclick="toggleLight('A')">
+                                <div class="map-label">Junction A <span id="timer-cc-A"
+                                        style="font-size: 0.75rem; color: #94a3b8;"></span></div>
+                                <div class="traffic-light-box map-lights" id="cc-light-A">
+                                    <div class="bulb red active"></div>
+                                    <div class="bulb green"></div>
+                                </div>
+                            </div>
+
+                            <!-- Junction B (Center-Right) -->
+                            <div class="map-junction map-junction-B" onclick="toggleLight('B')">
+                                <div class="map-label">Junction B <span id="timer-cc-B"
+                                        style="font-size: 0.75rem; color: #94a3b8;"></span></div>
+                                <div class="traffic-light-box map-lights" id="cc-light-B">
+                                    <div class="bulb red"></div>
+                                    <div class="bulb green active"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Real-Time Parameters -->
+                <div class="widget" style="grid-column: span 2;">
+                    <div class="widget-header">
+                        <div class="widget-title"><i class="fas fa-sliders-h"></i> Live Parameters</div>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:20px;">
+                        <!-- Threshold -->
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                                <span>Congestion Threshold</span>
+                                <span id="cc-lbl-threshold" style="font-weight:bold; color:var(--accent);">45%</span>
+                            </div>
+                            <input type="range" id="cc-inp-threshold" min="10" max="90" value="45" style="width:100%;"
+                                oninput="document.getElementById('cc-lbl-threshold').innerText=this.value+'%'; saveSettingsCC();">
+                        </div>
+                        <!-- Speed Limit -->
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                                <span>Speed Limit (km/h)</span>
+                                <span id="cc-lbl-speedlimit" style="font-weight:bold; color:var(--accent);">80
+                                    km/h</span>
+                            </div>
+                            <input type="range" id="cc-inp-speedlimit" min="30" max="120" value="80" style="width:100%;"
+                                oninput="document.getElementById('cc-lbl-speedlimit').innerText=this.value+' km/h'; saveSettingsCC();">
+                        </div>
+                        <!-- Timers -->
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                            <div>
+                                <label style="font-size:0.85rem;">Green Duration (s)</label>
+                                <input type="number" id="cc-inp-green" class="form-control" value="60"
+                                    onchange="saveSettingsCC()">
+                            </div>
+                            <div>
+                                <label style="font-size:0.85rem;">Yellow Duration (s)</label>
+                                <input type="number" id="cc-inp-yellow" class="form-control" value="5"
+                                    onchange="saveSettingsCC()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Environment & Simulation (NEW) -->
+                <div class="widget" style="grid-column: span 2;">
+                    <div class="widget-header">
+                        <div class="widget-title"><i class="fas fa-cloud-sun"></i> Environment Control</div>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+                        <!-- Weather -->
+                        <div>
+                            <label style="display:block; margin-bottom:10px; font-weight:500; font-size:0.9rem;">Weather
+                                Condition</label>
+                            <div class="control-grid" style="grid-template-columns: 1fr 1fr 1fr; gap:5px;">
+                                <button class="control-btn small" onclick="setWeather('Sunny')" id="btn-w-sunny"><i
+                                        class="fas fa-sun"></i></button>
+                                <button class="control-btn small" onclick="setWeather('Rainy')" id="btn-w-rainy"><i
+                                        class="fas fa-cloud-rain"></i></button>
+                                <button class="control-btn small" onclick="setWeather('Foggy')" id="btn-w-foggy"><i
+                                        class="fas fa-smog"></i></button>
+                            </div>
+                        </div>
+                        <!-- Traffic Scale -->
+                        <div>
+                            <label style="display:block; margin-bottom:10px; font-weight:500; font-size:0.9rem;">Traffic
+                                Simulation</label>
+                            <div class="control-grid" style="grid-template-columns: 1fr 1fr 1fr; gap:5px;">
+                                <button class="control-btn small" onclick="setSim(0.2)" id="btn-s-empty">Empty</button>
+                                <button class="control-btn small" onclick="setSim(1.0)" id="btn-s-norm">Normal</button>
+                                <button class="control-btn small" onclick="setSim(2.0)" id="btn-s-rush"
+                                    style="color:var(--danger)">RUSH</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Admin & Data Ops -->
+                <div class="widget" style="grid-column: span 2;">
+                    <div class="widget-header">
+                        <div class="widget-title"><i class="fas fa-shield-alt"></i> Admin Operations</div>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                        <button id="cc-btn-emerg" class="control-btn danger" onclick="toggleEmergency()"
+                            style="height:80px; font-size:1.1rem; background: #dc2626;">
+                            <i class="fas fa-exclamation-triangle"></i> EMERGENCY OVERRIDE
+                        </button>
+                        <button id="cc-btn-vip" class="control-btn" onclick="toggleVIP()"
+                            style="height:80px; font-size:1.1rem; background: #8b5cf6; color: white; border-color: #8b5cf6;">
+                            <i class="fas fa-star"></i> VIP ROUTE CLEARING
+                        </button>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:15px;">
+                        <div style="display: flex; gap: 10px; flex: 1;">
+                            <button id="cc-btn-rec" class="control-btn" onclick="toggleLoggingCC()" style="flex:1;">
+                                <i class="fas fa-circle"></i> <span>Wait...</span>
+                            </button>
+                            <button class="control-btn" onclick="clearDatabase()"
+                                style="flex:1; border-color: #ef4444; color: #ef4444;">
+                                <i class="fas fa-trash"></i> Wipe Data
+                            </button>
+                        </div>
+                        <select id="cc-inp-zone" class="form-control" onchange="saveSettingsCC()"
+                            style="flex:1; margin-left:10px;">
+                            <option value="Hospital Area">Hospital Area</option>
+                            <option value="School Zone">School Zone</option>
+                            <option value="Commercial Hub">Commercial Hub</option>
+                            <option value="Industrial Estate">Industrial Estate</option>
+                        </select>
+                    </div>
+
+                    <!-- Lane Control -->
+                    <div style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
+                        <label style="display:block; font-weight:500; margin-bottom:10px;">Lane Management (Road
+                            1)</label>
+                        <div style="display: flex; gap: 15px;">
+                            <button id="btn-lane-1" class="control-btn active" style="flex: 1;"
+                                onclick="toggleLane('Lane 1')">Lane 1: OPEN</button>
+                            <button id="btn-lane-2" class="control-btn active" style="flex: 1;"
+                                onclick="toggleLane('Lane 2')">Lane 2: OPEN</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <style>
+                /* Intersection Map CSS */
+                .intersection-map-container {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 20px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                .intersection-map {
+                    position: relative;
+                    width: 300px;
+                    height: 250px;
+                    background: rgba(15, 23, 42, 0.4);
+                    border: 1px solid rgba(59, 130, 246, 0.2);
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+                }
+
+                .road-h {
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    height: 80px;
+                    background: #1e293b;
+                    transform: translateY(-50%);
+                }
+
+                .road-v {
+                    position: absolute;
+                    left: 50%;
+                    height: 100%;
+                    width: 80px;
+                    background: #1e293b;
+                    transform: translateX(-50%);
+                }
+
+                .lane-divider-h {
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    height: 2px;
+                    background: repeating-linear-gradient(90deg, transparent, transparent 10px, #e2e8f0 10px, #e2e8f0 20px);
+                    transform: translateY(-50%);
+                }
+
+                .lane-divider-v {
+                    position: absolute;
+                    left: 50%;
+                    height: 100%;
+                    width: 2px;
+                    background: repeating-linear-gradient(0deg, transparent, transparent 10px, #e2e8f0 10px, #e2e8f0 20px);
+                    transform: translateX(-50%);
+                }
+
+                .map-junction {
+                    position: absolute;
+                    background: rgba(15, 23, 42, 0.9);
+                    border: 1px solid var(--accent);
+                    border-radius: 8px;
+                    padding: 8px;
+                    cursor: pointer;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                    transition: transform 0.2s;
+                    z-index: 10;
+                    text-align: center;
+                }
+
+                .map-junction:hover {
+                    transform: scale(1.05);
+                }
+
+                .map-junction-A {
+                    top: 20px;
+                    left: 20px;
+                }
+
+                .map-junction-B {
+                    bottom: 20px;
+                    right: 20px;
+                }
+
+                .map-label {
+                    color: white;
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                    margin-bottom: 6px;
+                    white-space: nowrap;
+                }
+
+                .map-lights {
+                    flex-direction: row !important;
+                    justify-content: center;
+                    padding: 4px !important;
+                    gap: 6px !important;
+                    background: #000 !important;
+                }
+
+                .map-lights .bulb {
+                    width: 16px !important;
+                    height: 16px !important;
+                }
+
+                .traffic-light-box {
+                    background: #2d3748;
+                    padding: 10px;
+                    border-radius: 12px;
+                    display: inline-flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                }
+
+                .bulb {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: #4a5568;
+                    transition: 0.2s;
+                }
+
+                .bulb.red.active {
+                    background: #ef4444;
+                    box-shadow: 0 0 15px #ef4444;
+                }
+
+                .bulb.green.active {
+                    background: #10b981;
+                    box-shadow: 0 0 15px #10b981;
+                }
+            </style>
+        </div>
+        <div id="view-analytics" class="view-section analytics-grid">
+            <div
+                style="grid-column: span 2; display: flex; justify-content: space-between; align-items: center; margin-bottom: -10px;">
+                <h3 style="margin:0; font-size:1.1rem;">Performance Reports</h3>
+
+                <!-- EXPORT BUTTON (Step C) -->
+                <a href="/export-csv" class="btn-primary" style="background: #10b981;">
+                    <i class="fas fa-file-csv"></i> Download CSV Report
+                </a>
+            </div>
+
+            <!-- AI PREDICTIVE FORECAST -->
+            <div class="widget chart-main glass" style="grid-column: span 2;">
+                <div class="widget-header">
+                    <div class="widget-title"><i class="fas fa-brain" style="color: #a855f7;"></i> AI Predictive Engine
+                        (Next 48 Hrs)</div>
+                    <span class="badge badge-green"
+                        style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">PREDICTIVE</span>
+                </div>
+                <div style="flex: 1; position: relative;"><canvas id="forecastChart"></canvas></div>
+            </div>
+
+            <div class="widget chart-main glass">
+                <div class="widget-header">
+                    <div class="widget-title">Weekly Trends</div>
+                </div>
+                <div style="flex: 1;"><canvas id="weeklyChart"></canvas></div>
+            </div>
+            <div class="widget chart-main glass">
+                <div class="widget-header">
+                    <div class="widget-title">Peak Hours</div>
+                </div>
+                <div style="flex: 1;"><canvas id="peakChart"></canvas></div>
+            </div>
+
+            <!-- DYNAMIC HISTORY TABLE (Step A) -->
+            <div class="widget table-widget">
+                <div class="widget-header">
+                    <div class="widget-title">📜 Traffic Data History (Live DB Sync)</div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Time</th>
+                            <th>Road</th>
+                            <th>Density</th>
+                            <th>Vehicles</th>
+                            <th>Pollution</th>
+                            <th>Noise</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTable">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- === CAMERAS === -->
+        <div id="view-cameras" class="view-section camera-grid">
+            <style>
+                .camera-overlay-ui {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    pointer-events: none;
+                    background-image:
+                        linear-gradient(rgba(20, 255, 20, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(20, 255, 20, 0.1) 1px, transparent 1px);
+                    background-size: 40px 40px;
+                    z-index: 10;
+                }
+
+                .ptz-hud {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 120px;
+                    height: 120px;
+                    border: 1px solid rgba(16, 185, 129, 0.4);
+                    border-radius: 50%;
+                    z-index: 11;
+                    box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.2);
+                }
+
+                .ptz-hud::before,
+                .ptz-hud::after {
+                    content: '';
+                    position: absolute;
+                    background: rgba(16, 185, 129, 0.8);
+                }
+
+                .ptz-hud::before {
+                    top: 50%;
+                    left: -10px;
+                    right: -10px;
+                    height: 1px;
+                    transform: translateY(-50%);
+                }
+
+                .ptz-hud::after {
+                    left: 50%;
+                    top: -10px;
+                    bottom: -10px;
+                    width: 1px;
+                    transform: translateX(-50%);
+                }
+
+                .cam-data {
+                    position: absolute;
+                    top: 16px;
+                    left: 16px;
+                    color: #10b981;
+                    font-family: monospace;
+                    font-size: 0.85rem;
+                    text-shadow: 0 0 4px #000;
+                    background: rgba(0, 0, 0, 0.6);
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                }
+
+                .rec-dot {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    width: 12px;
+                    height: 12px;
+                    background: #ef4444;
+                    border-radius: 50%;
+                    animation: blink 2s infinite;
+                    box-shadow: 0 0 8px #ef4444;
+                }
+
+                @keyframes blink {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                    }
+
+                    50% {
+                        opacity: 0.3;
+                    }
+                }
+            </style>
+            <div class="camera-feed"
+                style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80');">
+                <div class="camera-overlay-ui">
+                    <div class="ptz-hud"></div>
+                    <div class="cam-data">CAM 01 // MAIN JUNCTION // PTZ ACTIVE</div>
+                    <div class="rec-dot"></div>
+                </div>
+            </div>
+            <div class="camera-feed"
+                style="background-image: url('https://images.unsplash.com/photo-1542259681-d4cd71d49154?auto=format&fit=crop&w=800&q=80');">
+                <div class="camera-overlay-ui">
+                    <div class="ptz-hud"></div>
+                    <div class="cam-data">CAM 02 // HIGHWAY EXIT // AI TRACKING</div>
+                    <div class="rec-dot"></div>
+                </div>
+            </div>
+            <div class="camera-feed"
+                style="background-image: url('https://images.unsplash.com/photo-1565514020176-8575a6c17cd8?auto=format&fit=crop&w=800&q=80');">
+                <div class="camera-overlay-ui">
+                    <div class="ptz-hud"></div>
+                    <div class="cam-data">CAM 03 // TOLL PLAZA // LPR ONLINE</div>
+                    <div class="rec-dot"></div>
+                </div>
+            </div>
+            <div class="camera-feed"
+                style="background-image: url('https://images.unsplash.com/photo-1486749964890-50bafa8d29c3?auto=format&fit=crop&w=800&q=80');">
+                <div class="camera-overlay-ui">
+                    <div class="ptz-hud"></div>
+                    <div class="cam-data">CAM 04 // INDUSTRIAL ZONE // STATIC</div>
+                    <div class="rec-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === SETTINGS === -->
+        <div id="view-settings" class="view-section settings-view">
+            <div class="settings-container">
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-title"><i class="fas fa-sliders-h"></i> Operational Parameters</div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:20px;">
+                        <div>
+                            <label
+                                style="display:flex; justify-content:space-between; font-weight:500; margin-bottom:8px;">
+                                <span>Congestion Threshold (%)</span>
+                                <span id="lbl-threshold" style="color:var(--accent); font-weight:700;">45%</span>
+                            </label>
+                            <input type="range" id="inp-threshold" min="10" max="90" value="45" style="width:100%;"
+                                oninput="document.getElementById('lbl-threshold').innerText = this.value + '%'">
+                            <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:4px;">Traffic
+                                density
+                                above this value triggers 'Congested' status.</p>
+                        </div>
+
+                        <div>
+                            <label
+                                style="display:flex; justify-content:space-between; font-weight:500; margin-bottom:8px;">
+                                <span>Speed Limit (km/h)</span>
+                                <span id="lbl-speedlimit" style="color:var(--accent); font-weight:700;">80 km/h</span>
+                            </label>
+                            <input type="range" id="inp-speedlimit" min="30" max="120" value="80" style="width:100%;"
+                                oninput="document.getElementById('lbl-speedlimit').innerText = this.value + ' km/h'">
+                        </div>
+
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+                            <div>
+                                <label style="display:block; font-weight:500; margin-bottom:8px;">Green Light Duration
+                                    (s)</label>
+                                <input type="number" id="inp-green" class="form-control" value="60">
+                            </div>
+                            <div>
+                                <label style="display:block; font-weight:500; margin-bottom:8px;">Yellow Light Duration
+                                    (s)</label>
+                                <input type="number" id="inp-yellow" class="form-control" value="5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label style="display:block; font-weight:500; margin-bottom:8px;">Priority Zone</label>
+                            <select id="inp-zone" class="form-control">
+                                <option value="Hospital Area">Hospital Area (High Priority)</option>
+                                <option value="School Zone">School Zone</option>
+                                <option value="Commercial Hub">Commercial Hub</option>
+                                <option value="Industrial Estate">Industrial Estate</option>
+                            </select>
+                        </div>
+
+                        <!-- NEW SETTINGS -->
+                        <div style="padding-top: 15px; border-top: 1px solid var(--border);">
+                            <label
+                                style="display:flex; justify-content:space-between; font-weight:500; margin-bottom:8px;">
+                                <span>AI Confidence Level</span>
+                                <span id="lbl-ai" style="color:var(--accent); font-weight:700;">95%</span>
+                            </label>
+                            <input type="range" id="inp-ai" min="50" max="100" value="95" style="width:100%;"
+                                oninput="document.getElementById('lbl-ai').innerText = this.value + '%'">
+                            <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:4px;">Minimum
+                                confidence required for autonomous ML overrides.</p>
+                        </div>
+
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:center; padding:10px; border:1px solid var(--border); border-radius:8px;">
+                            <div style="display:flex; flex-direction:column;">
+                                <label style="font-weight:500;">Night Mode Schedule</label>
+                                <span style="font-size:0.75rem; color:var(--text-secondary);">Activate flashing yellows
+                                    from 12AM-5AM</span>
+                            </div>
+                            <input type="checkbox" id="inp-night" style="width:20px; height:20px; cursor:pointer;"
+                                onchange="addLog('Night Schedule ' + (this.checked ? 'Enabled' : 'Disabled'))">
+                        </div>
+                        <!-- END NEW SETTINGS -->
+
+                        <div style="text-align:right; margin-top:10px;">
+                            <button class="btn-primary" onclick="saveSettings()"><i class="fas fa-save"></i> Apply
+                                Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-title"><i class="fas fa-satellite-dish"></i> Auto-Logging Integration</div>
+                    </div>
+                    <p style="margin-top:0; margin-bottom:15px; font-size: 0.9rem; color: var(--text-secondary);">
+                        Toggle auto-generation of simulated traffic data into the database to visualize live updates on
+                        the dashboard.
+                    </p>
+                    <div
+                        style="display:flex; justify-content:space-between; align-items:center; padding:15px; border:1px solid var(--border); border-radius:8px;">
+                        <div style="display:flex; flex-direction:column;">
+                            <label style="font-weight:600; font-size: 1.05rem;">Auto-Logging Control</label>
+                            <span style="font-size:0.85rem; color:var(--text-secondary);">Save traffic data to JSON
+                                database</span>
+                        </div>
+                        <div style="display:flex; gap:10px;">
+                            <button id="btn-log-start" class="control-btn" onclick="setLogging(true)"
+                                style="width:100px; padding:10px; font-weight: bold;">
+                                <i class="fas fa-play"></i> START
+                            </button>
+                            <button id="btn-log-stop" class="control-btn" onclick="setLogging(false)"
+                                style="width:100px; padding:10px; font-weight: bold;">
+                                <i class="fas fa-stop"></i> STOP
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget" style="border-color: #ef4444;">
+                    <div class="widget-header">
+                        <div class="widget-title" style="color:#ef4444;"><i class="fas fa-database"></i> Data Management
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                        <button class="control-btn" onclick="backupConfig()"><i class="fas fa-download"></i> Backup
+                            Config</button>
+                        <button class="control-btn" onclick="restoreConfig()"><i class="fas fa-upload"></i> Restore
+                            Config</button>
+                    </div>
+
+                    <p style="margin-top:0; border-top: 1px solid #fee2e2; padding-top: 15px;">Manage stored traffic
+                        logs. Clearing data cannot be undone.</p>
+                    <button class="btn-primary danger" style="background:#ef4444;" onclick="clearDatabase()"><i
+                            class="fas fa-trash-alt"></i> Clear All History</button>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .form-control {
+                width: 100%;
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+                background: var(--bg-body);
+                color: var(--text-primary);
+                font-family: inherit;
+            }
+        </style>
+
+    </main>
+
+    <script>
+        // --- Navigation ---
+        function switchView(viewName) {
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+            document.getElementById('view-' + viewName).classList.add('active');
+            document.getElementById('nav-' + viewName).classList.add('active');
+            if (window.resizeCharts) window.resizeCharts();
+        }
+
+        // --- Init ---
+        window.addEventListener('load', () => {
+            addLog("System Initialized.", "normal");
+            addLog("Connected to Edge Nodes.", "success");
+            // Start History Auto-Loader
+            setInterval(loadHistory, 3000);
+            loadHistory();
+        });
+
+        // --- Step A: Load History ---
+        function loadHistory() {
+            fetch('/get-data')
+                .then(res => res.json())
+                .then(records => {
+                    const table = document.getElementById("historyTable");
+                    table.innerHTML = "";
+
+                    // Show last 10 records, newest first
+                    records.slice(-15).reverse().forEach(r => {
+                        table.innerHTML += `
+                            <tr>
+                                <td>#${r.id}</td>
+                                <td>${r.timestamp}</td>
+                                <td>${r.road}</td>
+                                <td>${r.density}%</td>
+                                <td>${r.vehicles}</td>
+                                <td>${r.pollution} AQI</td>
+                                <td>${r.noise} dB</td>
+                            </tr>
+                        `;
+                    });
+                });
+        }
+
+        function toggleTheme() { document.body.classList.toggle('dark-mode'); }
+
+        // --- API CONTROL ---
+        function setMode(mode) {
+            fetch('/api/set-mode', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode }) }).then(r => r.json()).then(d => {
+                const md = d.mode;
+                if (md === 'VIP_CLEARANCE') addLog(`<span style="color:#a855f7; font-weight:bold;">VIP Route Clearance Sequence Initiated</span>`, 'info');
+                else if (md === 'EMERGENCY') addLog(`<span style="color:#ef4444; font-weight:bold;">CRITICAL: Emergency Dispersal Initiated</span>`, 'warning');
+                else addLog(`Switched to ${md} Mode`);
+            });
+        }
+        function toggleLight(jun) {
+            fetch('/api/control-light', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ junction: jun }) });
+        }
+
+        function setLogging(state) {
+            fetch('/api/update-settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data_logging: state })
+            })
+                .then(r => r.json())
+                .then(d => {
+                    const msg = state ? "Data Recording Started" : "Data Recording STOPPED";
+                    addLog(msg, state ? "success" : "warning");
+                    // Checkbox is removed, state synchronizes via updateData poll
+                });
+        }
+
+        // --- SETTINGS LOGIC ---
+        function saveSettings() {
+            const payload = {
+                congestion_threshold: document.getElementById('inp-threshold').value,
+                speed_limit: document.getElementById('inp-speedlimit').value,
+                green_light_duration: document.getElementById('inp-green').value,
+                yellow_light_duration: document.getElementById('inp-yellow').value,
+                admin_zone: document.getElementById('inp-zone').value
+            };
+
+            fetch('/api/update-settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+                .then(r => r.json())
+                .then(d => {
+                    if (d.status === 'success') addLog("Settings Saved Successfully", "success");
+                    else addLog("Error Saving Settings", "error");
+                });
+        }
+
+        function backupConfig() {
+            fetch('/api/backup-data', { method: 'POST' })
+                .then(r => r.json())
+                .then(d => {
+                    if (d.status === 'success') addLog(d.message, 'success');
+                    else addLog(d.message, 'error');
+                });
+        }
+
+        function restoreConfig() {
+            if (!confirm("Are you sure you want to restore the system state from the backup file? Current session data will be lost.")) return;
+            fetch('/api/restore-data', { method: 'POST' })
+                .then(r => r.json())
+                .then(d => {
+                    if (d.status === 'success') {
+                        addLog(d.message, 'success');
+                        setTimeout(() => location.reload(), 1000); // Reload entire dashboard to reflect restored data
+                    } else {
+                        addLog(d.message, 'error');
+                    }
+                });
+        }
+
+        function clearDatabase() {
+            if (!confirm("Are you sure? This will delete all traffic history.")) return;
+
+            fetch('/api/clear-data', { method: 'POST' })
+                .then(r => r.json())
+                .then(d => {
+                    addLog("Database Cleared.", "warning");
+                    loadHistory(); // Refresh table
+                });
+        }
+
+        // --- CONTROL CENTER LOGIC ---
+        function saveSettingsCC() {
+            const payload = {
+                congestion_threshold: document.getElementById('cc-inp-threshold').value,
+                speed_limit: document.getElementById('cc-inp-speedlimit').value,
+                green_light_duration: document.getElementById('cc-inp-green').value,
+                yellow_light_duration: document.getElementById('cc-inp-yellow').value,
+                admin_zone: document.getElementById('cc-inp-zone').value
+            };
+
+            fetch('/api/update-settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(r => r.json()).then(d => {
+                // Optional: visual feedback like a small toast or console log
+                console.log("Settings updated:", d);
+            });
+        }
+
+        function toggleLoggingCC() {
+            const btn = document.getElementById('cc-btn-rec');
+            const isRecording = btn.classList.contains('active');
+            setLogging(!isRecording);
+        }
+
+        function toggleSettingsLogging() {
+            const btn = document.getElementById('btn-settings-logging');
+            const isRecording = btn.classList.contains('active');
+            setLogging(!isRecording);
+        }
+
+        function setWeather(w) {
+            fetch('/api/update-settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ weather: w })
+            }).then(r => r.json()).then(d => { console.log('Weather set:', w); });
+        }
+
+        function setSim(f) {
+            fetch('/api/update-settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ simulation_factor: f })
+            }).then(r => r.json()).then(d => { console.log('Sim factor:', f); });
+        }
+
+        function toggleEmergency() {
+            // If already in emergency, go back to AUTO
+            const btn = document.getElementById('cc-btn-emerg');
+            const isActive = btn.classList.contains('active');
+            const mode = isActive ? 'AUTO' : 'EMERGENCY';
+            setMode(mode);
+        }
+
+        function toggleVIP() {
+            // If already in VIP, go back to AUTO
+            const btn = document.getElementById('cc-btn-vip');
+            const isActive = btn.classList.contains('active');
+            const mode = isActive ? 'AUTO' : 'VIP_CLEARANCE';
+            setMode(mode);
+        }
+
+        function toggleLane(lane) {
+            const btn = lane === 'Lane 1' ? document.getElementById('btn-lane-1') : document.getElementById('btn-lane-2');
+            const currentStatus = btn.innerText.includes('OPEN') ? 'OPEN' : 'CLOSED';
+            const newStatus = currentStatus === 'OPEN' ? 'CLOSED' : 'OPEN';
+
+            fetch('/api/set-lane-status', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ lane: lane, status: newStatus })
+            }).then(r => r.json()).then(d => {
+                addLog(`${lane} marked as ${newStatus}`, newStatus === 'OPEN' ? 'success' : 'warning');
+            });
+        }
+
+        // --- CHARTS ---
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        const densityChart = new Chart(document.getElementById('densityChart').getContext('2d'), { type: 'bar', data: { labels: ['Road 1', 'Road 2', 'Road 3', 'Road 4'], datasets: [{ data: [0, 0, 0, 0], backgroundColor: '#3b82f6', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } } });
+        const typeChart = new Chart(document.getElementById('typeChart').getContext('2d'), { type: 'doughnut', data: { labels: ['Car', 'Bike', 'Truck', 'Bus'], datasets: [{ data: [30, 40, 10, 20], backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444'], borderWidth: 0 }] } });
+        const polChart = new Chart(document.getElementById('pollutionChart').getContext('2d'), { type: 'line', data: { labels: Array(10).fill(''), datasets: [{ data: Array(10).fill(0), borderColor: '#8b5cf6', fill: true }] }, options: { responsive: true, maintainAspectRatio: false, elements: { point: { radius: 0 } }, plugins: { legend: { display: false } }, scales: { x: { display: false }, y: { display: false } } } });
+
+        // Static Analytics Charts
+        const weeklyChart = new Chart(document.getElementById('weeklyChart').getContext('2d'), { type: 'line', data: { labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], datasets: [{ label: 'Avg Congestion', data: [45, 50, 48, 60, 55, 30, 25], borderColor: '#3b82f6' }] }, options: { responsive: true, maintainAspectRatio: false } });
+        const peakChart = new Chart(document.getElementById('peakChart').getContext('2d'), { type: 'bar', data: { labels: ['08:00', '12:00', '16:00', '20:00'], datasets: [{ label: 'Volume', data: [85, 45, 90, 75], backgroundColor: '#f59e0b', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false } });
+
+        // AI Predictive Forecast Chart (48-Hr)
+        const ctxForecast = document.getElementById('forecastChart').getContext('2d');
+        const gradientForecast = ctxForecast.createLinearGradient(0, 0, 0, 400);
+        gradientForecast.addColorStop(0, 'rgba(168, 85, 247, 0.4)'); // Purple
+        gradientForecast.addColorStop(1, 'rgba(168, 85, 247, 0.01)');
+
+        const forecastChart = new Chart(ctxForecast, {
+            type: 'line',
+            data: {
+                labels: ['Now', '+4h', '+8h', '+12h', '+16h', '+20h', '+24h', '+36h', '+48h'],
+                datasets: [{
+                    label: 'Predicted Density (%)',
+                    data: [45, 65, 80, 50, 30, 20, 40, 75, 55],
+                    borderColor: '#a855f7',
+                    backgroundColor: gradientForecast,
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#0f172a',
+                    pointBorderColor: '#a855f7',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                scales: {
+                    y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255, 255, 255, 0.05)' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        window.resizeCharts = () => { weeklyChart.resize(); peakChart.resize(); forecastChart.resize(); };
+
+        // --- LIVE DATA LOOP ---
+        const polHistory = Array(10).fill(0);
+        let lastStatus = "";
+        let currentDataId = null;
+
+        function setRoadStatus(road, status) {
+            fetch('/api/set-road-status', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ road: road, status: status })
+            }).then(r => r.json()).then(d => { console.log(road, status); });
+        }
+
+        // Standard Log Function
+        function addLog(msg, type = 'info') {
+            const container = document.getElementById('log-container');
+            const el = document.createElement('div');
+            el.innerHTML = `<div style="padding:10px; border-bottom:1px solid #eee; display:flex; gap:10px; align-items:center;">
+                <i class="fas fa-info-circle" style="color:var(--accent)"></i>
+                <div><div style="font-weight:500">${msg}</div><div style="font-size:0.75rem; color:#888">${new Date().toLocaleTimeString()}</div></div>
+            </div>`;
+            container.prepend(el);
+            if (container.children.length > 20) container.removeChild(container.lastChild);
+        }
+
+        function updateData() {
+            fetch('/traffic-data').then(r => r.json()).then(data => {
+                const sys = data.system;
+                const r1 = data["Road 1"];
+
+                // --- DATA-DRIVEN UI UPDATE ---
+                // Only update charts and stats if the data ID changed (meaning new entry in data.json)
+                if (r1.id !== currentDataId) {
+                    currentDataId = r1.id;
+
+                    document.getElementById('vehicles').innerText = r1.vehicles;
+                    document.getElementById('pollution').innerText = r1.pollution;
+                    document.getElementById('noise').innerText = r1.noise;
+
+                    if (data.metrics) {
+                        const sEl = document.getElementById('avg-speed');
+                        if (sEl) sEl.innerText = data.metrics.average_speed;
+                        const cEl = document.getElementById('carbon-saved');
+                        if (cEl) cEl.innerText = data.metrics.carbon_saved.toFixed(2);
+                    }
+
+                    const threshold = sys.settings ? sys.settings.congestion_threshold : 45;
+
+                    let status = "Normal"; let col = "var(--success)";
+                    if (r1.density > threshold) { status = "Congested"; col = "#ef4444"; }
+                    const sEl = document.getElementById('status'); sEl.innerText = status; sEl.style.color = col;
+
+                    const dData = [data["Road 1"].density, data["Road 2"].density, data["Road 3"].density, data["Road 4"].density];
+                    densityChart.data.datasets[0].data = dData; densityChart.update();
+
+                    polHistory.push(r1.pollution); polHistory.shift();
+                    polChart.data.datasets[0].data = polHistory; polChart.update();
+
+                    if (status !== lastStatus) { addLog(`Traffic changed to ${status}`); lastStatus = status; }
+                }
+
+                // --- SYSTEM STATE UPDATES (Runs every poll) ---
+                document.getElementById('btn-auto').className = `control-btn ${sys.mode === 'AUTO' ? 'active' : ''}`;
+                document.getElementById('btn-manual').className = `control-btn ${sys.mode === 'MANUAL' ? 'active' : ''}`;
+                const pan = document.getElementById('controlPanel');
+                if (sys.mode === 'MANUAL') pan.classList.add('manual-mode'); else pan.classList.remove('manual-mode');
+
+                const JA = sys.junctions.A;
+                const lightA = document.getElementById('light-A');
+                if (lightA) {
+                    lightA.querySelector('.red').classList.toggle('on', !JA.green);
+                    lightA.querySelector('.green').classList.toggle('on', JA.green);
+                    const tA = document.getElementById('timer-ds-A');
+                    if (tA && sys.mode === 'AUTO') tA.innerText = '(' + (JA.timer || 0) + 's)';
+                    else if (tA) tA.innerText = '';
+                }
+
+                const ccLA = document.getElementById('cc-light-A');
+                if (ccLA) {
+                    ccLA.querySelector('.red').classList.toggle('active', !JA.green);
+                    ccLA.querySelector('.green').classList.toggle('active', JA.green);
+                    const tccA = document.getElementById('timer-cc-A');
+                    if (tccA && sys.mode === 'AUTO') tccA.innerText = '(' + (JA.timer || 0) + 's)';
+                    else if (tccA) tccA.innerText = '';
+                }
+
+                const JB = sys.junctions.B;
+                const lightB = document.getElementById('light-B');
+                if (lightB) {
+                    lightB.querySelector('.red').classList.toggle('on', !JB.green);
+                    const bG = lightB.querySelector('.green');
+                    if (bG) bG.classList.toggle('on', JB.green);
+                    const tB = document.getElementById('timer-ds-B');
+                    if (tB && sys.mode === 'AUTO') tB.innerText = '(' + (JB.timer || 0) + 's)';
+                    else if (tB) tB.innerText = '';
+                }
+
+                const ccLB = document.getElementById('cc-light-B');
+                if (ccLB) {
+                    ccLB.querySelector('.red').classList.toggle('active', !JB.green);
+                    ccLB.querySelector('.green').classList.toggle('active', JB.green);
+                    const tccB = document.getElementById('timer-cc-B');
+                    if (tccB && sys.mode === 'AUTO') tccB.innerText = '(' + (JB.timer || 0) + 's)';
+                    else if (tccB) tccB.innerText = '';
+                }
+
+                // Update Logging Buttons
+                const isLogging = sys.settings ? sys.settings.data_logging : true;
+                const btnStart = document.getElementById('btn-rec-start');
+                const btnStop = document.getElementById('btn-rec-stop');
+
+                if (btnStart) btnStart.classList.toggle('active', isLogging);
+                if (btnStop) btnStop.classList.toggle('active', !isLogging);
+
+                // Update Control Center (CC) Elements
+                const ccBtnRec = document.getElementById('cc-btn-rec');
+                if (ccBtnRec) {
+                    if (isLogging) {
+                        ccBtnRec.innerHTML = '<i class="fas fa-stop-circle"></i> STOP REC';
+                        ccBtnRec.classList.add('active', 'danger');
+                        ccBtnRec.style.background = '#ef4444';
+                    } else {
+                        ccBtnRec.innerHTML = '<i class="fas fa-play-circle"></i> START REC';
+                        ccBtnRec.classList.remove('active', 'danger');
+                        ccBtnRec.style.background = '#10b981';
+                    }
+                }
+
+                const ccAuto = document.getElementById('cc-btn-auto');
+                if (ccAuto) ccAuto.classList.toggle('active', sys.mode === 'AUTO');
+
+                const ccManual = document.getElementById('cc-btn-manual');
+                if (ccManual) ccManual.classList.toggle('active', sys.mode === 'MANUAL');
+
+                // Sync CC Inputs (Only if not focused, to avoid fighting user)
+                if (sys.settings) {
+                    const activeId = document.activeElement.id;
+
+                    const inpThresh = document.getElementById('cc-inp-threshold');
+                    if (inpThresh && activeId !== 'cc-inp-threshold') {
+                        inpThresh.value = sys.settings.congestion_threshold;
+                        const lbl = document.getElementById('cc-lbl-threshold');
+                        if (lbl) lbl.innerText = sys.settings.congestion_threshold + '%';
+                    }
+
+                    const inpSpeedLimit = document.getElementById('cc-inp-speedlimit');
+                    if (inpSpeedLimit && activeId !== 'cc-inp-speedlimit') {
+                        inpSpeedLimit.value = sys.settings.speed_limit || 80;
+                        const slbl = document.getElementById('cc-lbl-speedlimit');
+                        if (slbl) slbl.innerText = (sys.settings.speed_limit || 80) + ' km/h';
+                    }
+
+                    const inpYellow = document.getElementById('cc-inp-yellow');
+                    if (inpYellow && activeId !== 'cc-inp-yellow') inpYellow.value = sys.settings.yellow_light_duration;
+
+                    const inpZone = document.getElementById('cc-inp-zone');
+                    if (inpZone && activeId !== 'cc-inp-zone') inpZone.value = sys.settings.admin_zone;
+
+                    // Main Settings Inputs
+                    const mInpThresh = document.getElementById('inp-threshold');
+                    if (mInpThresh && activeId !== 'inp-threshold') {
+                        mInpThresh.value = sys.settings.congestion_threshold;
+                        const mLbl = document.getElementById('lbl-threshold');
+                        if (mLbl) mLbl.innerText = sys.settings.congestion_threshold + '%';
+                    }
+                    const mInpSpeedLimit = document.getElementById('inp-speedlimit');
+                    if (mInpSpeedLimit && activeId !== 'inp-speedlimit') {
+                        mInpSpeedLimit.value = sys.settings.speed_limit || 80;
+                        const mslbl = document.getElementById('lbl-speedlimit');
+                        if (mslbl) mslbl.innerText = (sys.settings.speed_limit || 80) + ' km/h';
+                    }
+                    const mInpGreen = document.getElementById('inp-green');
+                    if (mInpGreen && activeId !== 'inp-green') mInpGreen.value = sys.settings.green_light_duration;
+                    const mInpYellow = document.getElementById('inp-yellow');
+                    if (mInpYellow && activeId !== 'inp-yellow') mInpYellow.value = sys.settings.yellow_light_duration;
+                    const mInpZone = document.getElementById('inp-zone');
+                    if (mInpZone && activeId !== 'inp-zone') mInpZone.value = sys.settings.admin_zone;
+                    const mInpAi = document.getElementById('inp-ai');
+                    if (mInpAi && activeId !== 'inp-ai') {
+                        mInpAi.value = sys.settings.ai_confidence_level || 95;
+                        const mLblAi = document.getElementById('lbl-ai');
+                        if (mLblAi) mLblAi.innerText = (sys.settings.ai_confidence_level || 95) + '%';
+                    }
+                    const mInpNight = document.getElementById('inp-night');
+                    if (mInpNight && activeId !== 'inp-night') mInpNight.checked = sys.settings.night_mode_schedule || false;
+                    const mLogStart = document.getElementById('btn-log-start');
+                    const mLogStop = document.getElementById('btn-log-stop');
+                    if (mLogStart && mLogStop) {
+                        if (sys.settings.data_logging) {
+                            mLogStart.style.background = '#10b981';
+                            mLogStart.style.color = 'white';
+                            mLogStop.style.background = 'var(--surface)';
+                            mLogStop.style.color = 'var(--text-primary)';
+                        } else {
+                            mLogStart.style.background = 'var(--surface)';
+                            mLogStart.style.color = 'var(--text-primary)';
+                            mLogStop.style.background = '#ef4444';
+                            mLogStop.style.color = 'white';
+                        }
+                    }
+
+                    // Sync Weather Buttons
+                    const w = sys.settings.weather || 'Sunny';
+                    ['Sunny', 'Rainy', 'Foggy'].forEach(t => {
+                        const b = document.getElementById('btn-w-' + t.toLowerCase());
+                        if (b) b.classList.toggle('active', w === t);
+                    });
+
+                    // Sync Sim Buttons
+                    const f = sys.settings.simulation_factor || 1.0;
+                    const bE = document.getElementById('btn-s-empty'); if (bE) bE.classList.toggle('active', f < 0.5);
+                    const bN = document.getElementById('btn-s-norm'); if (bN) bN.classList.toggle('active', f >= 0.9 && f <= 1.1);
+                    const bR = document.getElementById('btn-s-rush'); if (bR) bR.classList.toggle('active', f > 1.5);
+                }
+
+                // Sync Road Status
+                if (sys.road_status) {
+                    const activeId = document.activeElement.id;
+                    ['Road 1', 'Road 2', 'Road 3', 'Road 4'].forEach((r, i) => {
+                        const sel = document.getElementById('sel-road-' + (i + 1));
+                        if (sel && activeId !== sel.id) {
+                            sel.value = sys.road_status[r] || "Normal";
+                            if (sel.value === 'Closed') sel.style.border = "1px solid red";
+                            else if (sel.value === 'Congested') sel.style.border = "1px solid orange";
+                            else sel.style.border = "1px solid var(--border)";
+                        }
+                    });
+                }
+
+                // Sync Emergency & VIP Buttons
+                const btnEmerg = document.getElementById('cc-btn-emerg');
+                const btnVip = document.getElementById('cc-btn-vip');
+                const ticker = document.getElementById('global-ticker');
+
+                if (btnEmerg) {
+                    if (sys.mode === 'EMERGENCY') {
+                        btnEmerg.classList.add('active');
+                        btnEmerg.innerHTML = '<i class="fas fa-exclamation-circle"></i> EMERGENCY ACTIVE';
+                        if (ticker) ticker.innerHTML = '<span style="color:#ef4444;">/// EMERGENCY OVERRIDE IN PROGRESS - ALL UNITS DISPATCHED - GENERAL TRAFFIC PULL OVER ///</span>';
+                    } else {
+                        btnEmerg.classList.remove('active');
+                        btnEmerg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> EMERGENCY OVERRIDE';
+                    }
+                }
+
+                if (btnVip) {
+                    if (sys.mode === 'VIP_CLEARANCE') {
+                        btnVip.classList.add('active');
+                        btnVip.innerHTML = '<i class="fas fa-star"></i> VIP ROUTE ACTIVE (ALL GREEN)';
+                        btnVip.style.background = '#6d28d9'; // Darker purple when active
+                        if (ticker) ticker.innerHTML = '<span style="color:#a855f7;">/// VIP ROUTE CLEARANCE IN PROGRESS - SECTOR 1 SECURED - MAINTAINING FLOW ///</span>';
+                    } else {
+                        btnVip.classList.remove('active');
+                        btnVip.innerHTML = '<i class="fas fa-star"></i> VIP ROUTE CLEARING';
+                        btnVip.style.background = '#8b5cf6';
+                    }
+                }
+
+                if (sys.mode !== 'EMERGENCY' && sys.mode !== 'VIP_CLEARANCE') {
+                    if (ticker && ticker.innerHTML.includes('///') && !ticker.innerHTML.includes('NOMINAL')) {
+                        ticker.innerHTML = 'SYSTEM NOMINAL // AI MONITORING ACTIVE // ALL SENSORS ONLINE // SECTOR 7 TRAFFIC FLOW STABLE // WEATHER PATTERNS CLEAR // NO ACTIVE THREATS DETECTED //';
+                    }
+                }
+
+                // Sync Lane Status
+                if (sys.lanes) {
+                    const l1 = document.getElementById('btn-lane-1');
+                    if (l1) {
+                        l1.innerText = `Lane 1: ${sys.lanes['Lane 1']}`;
+                        if (sys.lanes['Lane 1'] === 'OPEN') { l1.classList.add('active'); l1.style.background = 'var(--success)'; l1.style.color = 'white'; }
+                        else { l1.classList.remove('active'); l1.style.background = 'var(--danger)'; l1.style.color = 'white'; }
+                    }
+                    const l2 = document.getElementById('btn-lane-2');
+                    if (l2) {
+                        l2.innerText = `Lane 2: ${sys.lanes['Lane 2']}`;
+                        if (sys.lanes['Lane 2'] === 'OPEN') { l2.classList.add('active'); l2.style.background = 'var(--success)'; l2.style.color = 'white'; }
+                        else { l2.classList.remove('active'); l2.style.background = 'var(--danger)'; l2.style.color = 'white'; }
+                    }
+                }
+
+                const ccLightA = document.getElementById('cc-light-A');
+                if (ccLightA) {
+                    ccLightA.querySelector('.red').classList.toggle('on', !JA.green);
+                    ccLightA.querySelector('.green').classList.toggle('on', JA.green);
+                }
+                const ccLightB = document.getElementById('cc-light-B');
+                if (ccLightB) {
+                    ccLightB.querySelector('.red').classList.toggle('on', !JB.green);
+                    ccLightB.querySelector('.green').classList.toggle('on', JB.green);
+                }
+
+                if (status !== lastStatus) { addLog(`Traffic changed to ${status}`); lastStatus = status; }
+            });
+        }
+        setInterval(updateData, 1000);
+
+    </script>
+</body>
+
+</html>

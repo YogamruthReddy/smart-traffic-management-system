@@ -1,0 +1,2596 @@
+{
+    "records": [
+        {
+            "id": 1,
+            "timestamp": "2026-02-08 01:46:31",
+            "road": "Road 1",
+            "density": 50,
+            "vehicles": 30,
+            "pollution": 381,
+            "noise": 86
+        },
+        {
+            "id": 2,
+            "timestamp": "2026-02-08 01:46:31",
+            "road": "Road 1",
+            "density": 69,
+            "vehicles": 41,
+            "pollution": 450,
+            "noise": 57
+        },
+        {
+            "id": 3,
+            "timestamp": "2026-02-08 01:46:31",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 42,
+            "pollution": 533,
+            "noise": 54
+        },
+        {
+            "id": 4,
+            "timestamp": "2026-02-08 01:46:31",
+            "road": "Road 1",
+            "density": 79,
+            "vehicles": 47,
+            "pollution": 589,
+            "noise": 87
+        },
+        {
+            "id": 5,
+            "timestamp": "2026-02-08 01:46:31",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 42,
+            "pollution": 555,
+            "noise": 45
+        },
+        {
+            "id": 6,
+            "timestamp": "2026-02-08 01:46:31",
+            "road": "Road 1",
+            "density": 70,
+            "vehicles": 42,
+            "pollution": 507,
+            "noise": 66
+        },
+        {
+            "id": 7,
+            "timestamp": "2026-02-08 01:46:31",
+            "road": "Road 1",
+            "density": 17,
+            "vehicles": 10,
+            "pollution": 123,
+            "noise": 77
+        },
+        {
+            "id": 8,
+            "timestamp": "2026-02-08 01:46:31",
+            "road": "Road 1",
+            "density": 39,
+            "vehicles": 23,
+            "pollution": 280,
+            "noise": 66
+        },
+        {
+            "id": 9,
+            "timestamp": "2026-02-08 01:46:32",
+            "road": "Road 1",
+            "density": 53,
+            "vehicles": 31,
+            "pollution": 197,
+            "noise": 88
+        },
+        {
+            "id": 10,
+            "timestamp": "2026-02-08 01:46:33",
+            "road": "Road 1",
+            "density": 36,
+            "vehicles": 21,
+            "pollution": 131,
+            "noise": 56
+        },
+        {
+            "id": 11,
+            "timestamp": "2026-02-08 01:46:34",
+            "road": "Road 1",
+            "density": 77,
+            "vehicles": 46,
+            "pollution": 286,
+            "noise": 86
+        },
+        {
+            "id": 12,
+            "timestamp": "2026-02-08 01:46:35",
+            "road": "Road 1",
+            "density": 10,
+            "vehicles": 6,
+            "pollution": 37,
+            "noise": 59
+        },
+        {
+            "id": 13,
+            "timestamp": "2026-02-08 01:46:36",
+            "road": "Road 1",
+            "density": 39,
+            "vehicles": 23,
+            "pollution": 371,
+            "noise": 47
+        },
+        {
+            "id": 14,
+            "timestamp": "2026-02-08 01:46:37",
+            "road": "Road 1",
+            "density": 19,
+            "vehicles": 11,
+            "pollution": 87,
+            "noise": 49
+        },
+        {
+            "id": 15,
+            "timestamp": "2026-02-08 01:46:38",
+            "road": "Road 1",
+            "density": 26,
+            "vehicles": 15,
+            "pollution": 183,
+            "noise": 50
+        },
+        {
+            "id": 16,
+            "timestamp": "2026-02-08 01:46:39",
+            "road": "Road 1",
+            "density": 90,
+            "vehicles": 54,
+            "pollution": 805,
+            "noise": 71
+        },
+        {
+            "id": 17,
+            "timestamp": "2026-02-08 01:46:40",
+            "road": "Road 1",
+            "density": 90,
+            "vehicles": 54,
+            "pollution": 606,
+            "noise": 77
+        },
+        {
+            "id": 18,
+            "timestamp": "2026-02-08 01:46:41",
+            "road": "Road 1",
+            "density": 84,
+            "vehicles": 50,
+            "pollution": 338,
+            "noise": 47
+        },
+        {
+            "id": 19,
+            "timestamp": "2026-02-08 01:46:42",
+            "road": "Road 1",
+            "density": 66,
+            "vehicles": 39,
+            "pollution": 346,
+            "noise": 51
+        },
+        {
+            "id": 20,
+            "timestamp": "2026-02-08 01:46:43",
+            "road": "Road 1",
+            "density": 57,
+            "vehicles": 34,
+            "pollution": 508,
+            "noise": 86
+        },
+        {
+            "id": 21,
+            "timestamp": "2026-02-08 01:46:44",
+            "road": "Road 1",
+            "density": 17,
+            "vehicles": 10,
+            "pollution": 150,
+            "noise": 72
+        },
+        {
+            "id": 22,
+            "timestamp": "2026-02-08 01:46:45",
+            "road": "Road 1",
+            "density": 20,
+            "vehicles": 12,
+            "pollution": 170,
+            "noise": 86
+        },
+        {
+            "id": 23,
+            "timestamp": "2026-02-08 01:46:46",
+            "road": "Road 1",
+            "density": 35,
+            "vehicles": 21,
+            "pollution": 269,
+            "noise": 40
+        },
+        {
+            "id": 24,
+            "timestamp": "2026-02-08 01:46:47",
+            "road": "Road 1",
+            "density": 46,
+            "vehicles": 27,
+            "pollution": 332,
+            "noise": 69
+        },
+        {
+            "id": 25,
+            "timestamp": "2026-02-08 01:48:30",
+            "road": "Road 1",
+            "density": 35,
+            "vehicles": 21,
+            "pollution": 157,
+            "noise": 68
+        },
+        {
+            "id": 26,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 53,
+            "vehicles": 31,
+            "pollution": 475,
+            "noise": 57
+        },
+        {
+            "id": 27,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 40,
+            "vehicles": 24,
+            "pollution": 214,
+            "noise": 92
+        },
+        {
+            "id": 28,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 47,
+            "vehicles": 28,
+            "pollution": 356,
+            "noise": 90
+        },
+        {
+            "id": 29,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 41,
+            "vehicles": 24,
+            "pollution": 223,
+            "noise": 93
+        },
+        {
+            "id": 30,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 70,
+            "vehicles": 42,
+            "pollution": 433,
+            "noise": 55
+        },
+        {
+            "id": 31,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 21,
+            "vehicles": 12,
+            "pollution": 106,
+            "noise": 51
+        },
+        {
+            "id": 32,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 67,
+            "vehicles": 40,
+            "pollution": 319,
+            "noise": 41
+        },
+        {
+            "id": 33,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 52,
+            "vehicles": 31,
+            "pollution": 308,
+            "noise": 46
+        },
+        {
+            "id": 34,
+            "timestamp": "2026-02-08 01:48:31",
+            "road": "Road 1",
+            "density": 90,
+            "vehicles": 54,
+            "pollution": 328,
+            "noise": 43
+        },
+        {
+            "id": 35,
+            "timestamp": "2026-03-07 14:34:50",
+            "road": "Road 1",
+            "density": 43,
+            "vehicles": 25,
+            "pollution": 153,
+            "noise": 64
+        },
+        {
+            "id": 36,
+            "timestamp": "2026-03-07 14:34:51",
+            "road": "Road 1",
+            "density": 64,
+            "vehicles": 38,
+            "pollution": 220,
+            "noise": 60
+        },
+        {
+            "id": 37,
+            "timestamp": "2026-03-07 14:34:52",
+            "road": "Road 1",
+            "density": 82,
+            "vehicles": 49,
+            "pollution": 480,
+            "noise": 54
+        },
+        {
+            "id": 38,
+            "timestamp": "2026-03-07 14:34:53",
+            "road": "Road 1",
+            "density": 29,
+            "vehicles": 17,
+            "pollution": 218,
+            "noise": 44
+        },
+        {
+            "id": 39,
+            "timestamp": "2026-03-07 14:34:54",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 42,
+            "pollution": 231,
+            "noise": 82
+        },
+        {
+            "id": 40,
+            "timestamp": "2026-03-07 14:34:55",
+            "road": "Road 1",
+            "density": 46,
+            "vehicles": 27,
+            "pollution": 325,
+            "noise": 91
+        },
+        {
+            "id": 41,
+            "timestamp": "2026-03-07 14:34:56",
+            "road": "Road 1",
+            "density": 86,
+            "vehicles": 51,
+            "pollution": 617,
+            "noise": 82
+        },
+        {
+            "id": 42,
+            "timestamp": "2026-03-07 14:34:57",
+            "road": "Road 1",
+            "density": 44,
+            "vehicles": 26,
+            "pollution": 352,
+            "noise": 58
+        },
+        {
+            "id": 43,
+            "timestamp": "2026-03-07 14:34:58",
+            "road": "Road 1",
+            "density": 73,
+            "vehicles": 43,
+            "pollution": 242,
+            "noise": 52
+        },
+        {
+            "id": 44,
+            "timestamp": "2026-03-07 14:34:59",
+            "road": "Road 1",
+            "density": 67,
+            "vehicles": 40,
+            "pollution": 531,
+            "noise": 82
+        },
+        {
+            "id": 45,
+            "timestamp": "2026-03-07 14:35:00",
+            "road": "Road 1",
+            "density": 74,
+            "vehicles": 44,
+            "pollution": 590,
+            "noise": 89
+        },
+        {
+            "id": 46,
+            "timestamp": "2026-03-07 14:35:02",
+            "road": "Road 1",
+            "density": 36,
+            "vehicles": 21,
+            "pollution": 283,
+            "noise": 92
+        },
+        {
+            "id": 47,
+            "timestamp": "2026-03-07 14:35:03",
+            "road": "Road 1",
+            "density": 62,
+            "vehicles": 37,
+            "pollution": 400,
+            "noise": 56
+        },
+        {
+            "id": 48,
+            "timestamp": "2026-03-07 14:35:04",
+            "road": "Road 1",
+            "density": 21,
+            "vehicles": 12,
+            "pollution": 109,
+            "noise": 50
+        },
+        {
+            "id": 49,
+            "timestamp": "2026-03-07 14:35:05",
+            "road": "Road 1",
+            "density": 35,
+            "vehicles": 21,
+            "pollution": 128,
+            "noise": 90
+        },
+        {
+            "id": 50,
+            "timestamp": "2026-03-07 14:35:06",
+            "road": "Road 1",
+            "density": 48,
+            "vehicles": 28,
+            "pollution": 216,
+            "noise": 55
+        },
+        {
+            "id": 51,
+            "timestamp": "2026-03-07 14:35:07",
+            "road": "Road 1",
+            "density": 26,
+            "vehicles": 15,
+            "pollution": 180,
+            "noise": 68
+        },
+        {
+            "id": 52,
+            "timestamp": "2026-03-07 14:35:08",
+            "road": "Road 1",
+            "density": 58,
+            "vehicles": 34,
+            "pollution": 367,
+            "noise": 41
+        },
+        {
+            "id": 53,
+            "timestamp": "2026-03-07 14:35:09",
+            "road": "Road 1",
+            "density": 89,
+            "vehicles": 53,
+            "pollution": 407,
+            "noise": 64
+        },
+        {
+            "id": 54,
+            "timestamp": "2026-03-07 14:35:10",
+            "road": "Road 1",
+            "density": 63,
+            "vehicles": 37,
+            "pollution": 205,
+            "noise": 75
+        },
+        {
+            "id": 55,
+            "timestamp": "2026-03-07 14:35:11",
+            "road": "Road 1",
+            "density": 86,
+            "vehicles": 51,
+            "pollution": 641,
+            "noise": 68
+        },
+        {
+            "id": 56,
+            "timestamp": "2026-03-07 14:35:12",
+            "road": "Road 1",
+            "density": 24,
+            "vehicles": 14,
+            "pollution": 131,
+            "noise": 77
+        },
+        {
+            "id": 57,
+            "timestamp": "2026-03-07 14:35:13",
+            "road": "Road 1",
+            "density": 12,
+            "vehicles": 7,
+            "pollution": 60,
+            "noise": 43
+        },
+        {
+            "id": 58,
+            "timestamp": "2026-03-07 14:35:14",
+            "road": "Road 1",
+            "density": 11,
+            "vehicles": 6,
+            "pollution": 76,
+            "noise": 70
+        },
+        {
+            "id": 59,
+            "timestamp": "2026-03-07 14:35:15",
+            "road": "Road 1",
+            "density": 30,
+            "vehicles": 18,
+            "pollution": 228,
+            "noise": 88
+        },
+        {
+            "id": 60,
+            "timestamp": "2026-03-07 14:35:16",
+            "road": "Road 1",
+            "density": 90,
+            "vehicles": 54,
+            "pollution": 460,
+            "noise": 84
+        },
+        {
+            "id": 61,
+            "timestamp": "2026-03-07 14:35:17",
+            "road": "Road 1",
+            "density": 52,
+            "vehicles": 31,
+            "pollution": 282,
+            "noise": 49
+        },
+        {
+            "id": 62,
+            "timestamp": "2026-03-07 14:35:18",
+            "road": "Road 1",
+            "density": 12,
+            "vehicles": 7,
+            "pollution": 44,
+            "noise": 76
+        },
+        {
+            "id": 63,
+            "timestamp": "2026-03-07 14:35:19",
+            "road": "Road 1",
+            "density": 68,
+            "vehicles": 40,
+            "pollution": 537,
+            "noise": 71
+        },
+        {
+            "id": 64,
+            "timestamp": "2026-03-07 14:35:20",
+            "road": "Road 1",
+            "density": 70,
+            "vehicles": 42,
+            "pollution": 505,
+            "noise": 45
+        },
+        {
+            "id": 65,
+            "timestamp": "2026-03-07 14:35:21",
+            "road": "Road 1",
+            "density": 83,
+            "vehicles": 49,
+            "pollution": 451,
+            "noise": 49
+        },
+        {
+            "id": 66,
+            "timestamp": "2026-03-07 14:35:22",
+            "road": "Road 1",
+            "density": 27,
+            "vehicles": 16,
+            "pollution": 89,
+            "noise": 40
+        },
+        {
+            "id": 67,
+            "timestamp": "2026-03-07 14:35:23",
+            "road": "Road 1",
+            "density": 60,
+            "vehicles": 36,
+            "pollution": 462,
+            "noise": 88
+        },
+        {
+            "id": 68,
+            "timestamp": "2026-03-07 14:35:24",
+            "road": "Road 1",
+            "density": 87,
+            "vehicles": 52,
+            "pollution": 264,
+            "noise": 80
+        },
+        {
+            "id": 69,
+            "timestamp": "2026-03-07 14:35:25",
+            "road": "Road 1",
+            "density": 30,
+            "vehicles": 18,
+            "pollution": 166,
+            "noise": 85
+        },
+        {
+            "id": 70,
+            "timestamp": "2026-03-07 14:35:26",
+            "road": "Road 1",
+            "density": 77,
+            "vehicles": 46,
+            "pollution": 368,
+            "noise": 73
+        },
+        {
+            "id": 71,
+            "timestamp": "2026-03-07 14:35:27",
+            "road": "Road 1",
+            "density": 24,
+            "vehicles": 14,
+            "pollution": 183,
+            "noise": 69
+        },
+        {
+            "id": 72,
+            "timestamp": "2026-03-07 14:35:28",
+            "road": "Road 1",
+            "density": 36,
+            "vehicles": 21,
+            "pollution": 277,
+            "noise": 70
+        },
+        {
+            "id": 73,
+            "timestamp": "2026-03-07 14:35:29",
+            "road": "Road 1",
+            "density": 82,
+            "vehicles": 49,
+            "pollution": 583,
+            "noise": 70
+        },
+        {
+            "id": 74,
+            "timestamp": "2026-03-07 14:35:29",
+            "road": "Road 1",
+            "density": 42,
+            "vehicles": 25,
+            "pollution": 215,
+            "noise": 77
+        },
+        {
+            "id": 75,
+            "timestamp": "2026-03-07 14:35:30",
+            "road": "Road 1",
+            "density": 50,
+            "vehicles": 30,
+            "pollution": 260,
+            "noise": 47
+        },
+        {
+            "id": 76,
+            "timestamp": "2026-03-07 14:35:31",
+            "road": "Road 1",
+            "density": 57,
+            "vehicles": 34,
+            "pollution": 451,
+            "noise": 70
+        },
+        {
+            "id": 77,
+            "timestamp": "2026-03-07 14:35:32",
+            "road": "Road 1",
+            "density": 86,
+            "vehicles": 51,
+            "pollution": 553,
+            "noise": 63
+        },
+        {
+            "id": 78,
+            "timestamp": "2026-03-07 14:35:33",
+            "road": "Road 1",
+            "density": 52,
+            "vehicles": 31,
+            "pollution": 344,
+            "noise": 91
+        },
+        {
+            "id": 79,
+            "timestamp": "2026-03-07 14:35:34",
+            "road": "Road 1",
+            "density": 82,
+            "vehicles": 49,
+            "pollution": 401,
+            "noise": 50
+        },
+        {
+            "id": 80,
+            "timestamp": "2026-03-07 14:35:35",
+            "road": "Road 1",
+            "density": 89,
+            "vehicles": 53,
+            "pollution": 485,
+            "noise": 88
+        },
+        {
+            "id": 81,
+            "timestamp": "2026-03-07 14:35:36",
+            "road": "Road 1",
+            "density": 28,
+            "vehicles": 16,
+            "pollution": 184,
+            "noise": 49
+        },
+        {
+            "id": 82,
+            "timestamp": "2026-03-07 14:35:37",
+            "road": "Road 1",
+            "density": 10,
+            "vehicles": 6,
+            "pollution": 72,
+            "noise": 69
+        },
+        {
+            "id": 83,
+            "timestamp": "2026-03-07 14:35:38",
+            "road": "Road 1",
+            "density": 76,
+            "vehicles": 45,
+            "pollution": 463,
+            "noise": 89
+        },
+        {
+            "id": 84,
+            "timestamp": "2026-03-07 14:35:39",
+            "road": "Road 1",
+            "density": 65,
+            "vehicles": 39,
+            "pollution": 409,
+            "noise": 54
+        },
+        {
+            "id": 85,
+            "timestamp": "2026-03-07 14:35:40",
+            "road": "Road 1",
+            "density": 41,
+            "vehicles": 24,
+            "pollution": 286,
+            "noise": 57
+        },
+        {
+            "id": 86,
+            "timestamp": "2026-03-07 14:35:41",
+            "road": "Road 1",
+            "density": 66,
+            "vehicles": 39,
+            "pollution": 333,
+            "noise": 84
+        },
+        {
+            "id": 87,
+            "timestamp": "2026-03-07 14:35:42",
+            "road": "Road 1",
+            "density": 20,
+            "vehicles": 12,
+            "pollution": 120,
+            "noise": 48
+        },
+        {
+            "id": 88,
+            "timestamp": "2026-03-07 14:35:43",
+            "road": "Road 1",
+            "density": 81,
+            "vehicles": 48,
+            "pollution": 364,
+            "noise": 79
+        },
+        {
+            "id": 89,
+            "timestamp": "2026-03-07 14:35:44",
+            "road": "Road 1",
+            "density": 40,
+            "vehicles": 24,
+            "pollution": 209,
+            "noise": 73
+        },
+        {
+            "id": 90,
+            "timestamp": "2026-03-07 14:35:45",
+            "road": "Road 1",
+            "density": 88,
+            "vehicles": 52,
+            "pollution": 265,
+            "noise": 41
+        },
+        {
+            "id": 91,
+            "timestamp": "2026-03-07 14:35:46",
+            "road": "Road 1",
+            "density": 20,
+            "vehicles": 12,
+            "pollution": 157,
+            "noise": 85
+        },
+        {
+            "id": 92,
+            "timestamp": "2026-03-07 14:52:55",
+            "road": "Road 1",
+            "density": 40,
+            "vehicles": 20,
+            "pollution": 102,
+            "noise": 89
+        },
+        {
+            "id": 93,
+            "timestamp": "2026-03-07 14:53:00",
+            "road": "Road 1",
+            "density": 29,
+            "vehicles": 14,
+            "pollution": 92,
+            "noise": 69
+        },
+        {
+            "id": 94,
+            "timestamp": "2026-03-07 14:53:06",
+            "road": "Road 1",
+            "density": 63,
+            "vehicles": 31,
+            "pollution": 140,
+            "noise": 100
+        },
+        {
+            "id": 95,
+            "timestamp": "2026-03-07 14:53:12",
+            "road": "Road 1",
+            "density": 39,
+            "vehicles": 19,
+            "pollution": 94,
+            "noise": 72
+        },
+        {
+            "id": 96,
+            "timestamp": "2026-03-07 14:53:17",
+            "road": "Road 1",
+            "density": 36,
+            "vehicles": 18,
+            "pollution": 114,
+            "noise": 86
+        },
+        {
+            "id": 97,
+            "timestamp": "2026-03-07 14:53:23",
+            "road": "Road 1",
+            "density": 36,
+            "vehicles": 18,
+            "pollution": 110,
+            "noise": 71
+        },
+        {
+            "id": 98,
+            "timestamp": "2026-03-07 14:53:29",
+            "road": "Road 1",
+            "density": 22,
+            "vehicles": 11,
+            "pollution": 91,
+            "noise": 71
+        },
+        {
+            "id": 99,
+            "timestamp": "2026-03-07 14:53:35",
+            "road": "Road 1",
+            "density": 42,
+            "vehicles": 21,
+            "pollution": 113,
+            "noise": 80
+        },
+        {
+            "id": 100,
+            "timestamp": "2026-03-07 14:53:41",
+            "road": "Road 1",
+            "density": 19,
+            "vehicles": 9,
+            "pollution": 86,
+            "noise": 65
+        },
+        {
+            "id": 101,
+            "timestamp": "2026-03-07 14:53:47",
+            "road": "Road 1",
+            "density": 77,
+            "vehicles": 38,
+            "pollution": 170,
+            "noise": 101
+        },
+        {
+            "id": 102,
+            "timestamp": "2026-03-07 14:53:53",
+            "road": "Road 1",
+            "density": 58,
+            "vehicles": 29,
+            "pollution": 155,
+            "noise": 81
+        },
+        {
+            "id": 103,
+            "timestamp": "2026-03-07 14:53:59",
+            "road": "Road 1",
+            "density": 30,
+            "vehicles": 15,
+            "pollution": 62,
+            "noise": 69
+        },
+        {
+            "id": 104,
+            "timestamp": "2026-03-07 14:54:04",
+            "road": "Road 1",
+            "density": 44,
+            "vehicles": 22,
+            "pollution": 92,
+            "noise": 86
+        },
+        {
+            "id": 105,
+            "timestamp": "2026-03-07 14:54:10",
+            "road": "Road 1",
+            "density": 22,
+            "vehicles": 11,
+            "pollution": 51,
+            "noise": 73
+        },
+        {
+            "id": 106,
+            "timestamp": "2026-03-07 14:54:15",
+            "road": "Road 1",
+            "density": 22,
+            "vehicles": 11,
+            "pollution": 77,
+            "noise": 63
+        },
+        {
+            "id": 107,
+            "timestamp": "2026-03-07 14:54:20",
+            "road": "Road 1",
+            "density": 25,
+            "vehicles": 12,
+            "pollution": 96,
+            "noise": 73
+        },
+        {
+            "id": 108,
+            "timestamp": "2026-03-07 14:54:26",
+            "road": "Road 1",
+            "density": 42,
+            "vehicles": 21,
+            "pollution": 126,
+            "noise": 87
+        },
+        {
+            "id": 109,
+            "timestamp": "2026-03-07 14:54:32",
+            "road": "Road 1",
+            "density": 29,
+            "vehicles": 14,
+            "pollution": 82,
+            "noise": 83
+        },
+        {
+            "id": 110,
+            "timestamp": "2026-03-07 14:54:38",
+            "road": "Road 1",
+            "density": 14,
+            "vehicles": 7,
+            "pollution": 33,
+            "noise": 73
+        },
+        {
+            "id": 111,
+            "timestamp": "2026-03-07 14:54:44",
+            "road": "Road 1",
+            "density": 20,
+            "vehicles": 10,
+            "pollution": 70,
+            "noise": 60
+        },
+        {
+            "id": 112,
+            "timestamp": "2026-03-07 14:54:50",
+            "road": "Road 1",
+            "density": 75,
+            "vehicles": 37,
+            "pollution": 174,
+            "noise": 98
+        },
+        {
+            "id": 113,
+            "timestamp": "2026-03-07 14:54:55",
+            "road": "Road 1",
+            "density": 22,
+            "vehicles": 11,
+            "pollution": 78,
+            "noise": 61
+        },
+        {
+            "id": 114,
+            "timestamp": "2026-03-07 14:55:00",
+            "road": "Road 1",
+            "density": 79,
+            "vehicles": 39,
+            "pollution": 172,
+            "noise": 93
+        },
+        {
+            "id": 115,
+            "timestamp": "2026-03-07 14:55:05",
+            "road": "Road 1",
+            "density": 69,
+            "vehicles": 34,
+            "pollution": 145,
+            "noise": 94
+        },
+        {
+            "id": 116,
+            "timestamp": "2026-03-07 14:55:10",
+            "road": "Road 1",
+            "density": 41,
+            "vehicles": 20,
+            "pollution": 128,
+            "noise": 90
+        },
+        {
+            "id": 117,
+            "timestamp": "2026-03-07 14:55:15",
+            "road": "Road 1",
+            "density": 78,
+            "vehicles": 39,
+            "pollution": 202,
+            "noise": 91
+        },
+        {
+            "id": 118,
+            "timestamp": "2026-03-07 14:55:21",
+            "road": "Road 1",
+            "density": 26,
+            "vehicles": 13,
+            "pollution": 66,
+            "noise": 66
+        },
+        {
+            "id": 119,
+            "timestamp": "2026-03-07 14:55:26",
+            "road": "Road 1",
+            "density": 40,
+            "vehicles": 20,
+            "pollution": 93,
+            "noise": 87
+        },
+        {
+            "id": 120,
+            "timestamp": "2026-03-07 14:55:32",
+            "road": "Road 1",
+            "density": 30,
+            "vehicles": 15,
+            "pollution": 95,
+            "noise": 81
+        },
+        {
+            "id": 121,
+            "timestamp": "2026-03-07 14:55:38",
+            "road": "Road 1",
+            "density": 25,
+            "vehicles": 12,
+            "pollution": 53,
+            "noise": 71
+        },
+        {
+            "id": 122,
+            "timestamp": "2026-03-07 14:55:43",
+            "road": "Road 1",
+            "density": 44,
+            "vehicles": 22,
+            "pollution": 119,
+            "noise": 80
+        },
+        {
+            "id": 123,
+            "timestamp": "2026-03-07 14:55:48",
+            "road": "Road 1",
+            "density": 62,
+            "vehicles": 31,
+            "pollution": 126,
+            "noise": 95
+        },
+        {
+            "id": 124,
+            "timestamp": "2026-03-07 14:55:53",
+            "road": "Road 1",
+            "density": 42,
+            "vehicles": 21,
+            "pollution": 134,
+            "noise": 71
+        },
+        {
+            "id": 125,
+            "timestamp": "2026-03-07 14:55:59",
+            "road": "Road 1",
+            "density": 59,
+            "vehicles": 29,
+            "pollution": 118,
+            "noise": 94
+        },
+        {
+            "id": 126,
+            "timestamp": "2026-03-07 14:56:05",
+            "road": "Road 1",
+            "density": 56,
+            "vehicles": 28,
+            "pollution": 143,
+            "noise": 91
+        },
+        {
+            "id": 127,
+            "timestamp": "2026-03-07 14:56:11",
+            "road": "Road 1",
+            "density": 28,
+            "vehicles": 14,
+            "pollution": 77,
+            "noise": 82
+        },
+        {
+            "id": 128,
+            "timestamp": "2026-03-07 14:56:16",
+            "road": "Road 1",
+            "density": 28,
+            "vehicles": 14,
+            "pollution": 95,
+            "noise": 77
+        },
+        {
+            "id": 129,
+            "timestamp": "2026-03-07 14:56:22",
+            "road": "Road 1",
+            "density": 60,
+            "vehicles": 30,
+            "pollution": 139,
+            "noise": 87
+        },
+        {
+            "id": 130,
+            "timestamp": "2026-03-07 14:56:28",
+            "road": "Road 1",
+            "density": 57,
+            "vehicles": 28,
+            "pollution": 155,
+            "noise": 92
+        },
+        {
+            "id": 131,
+            "timestamp": "2026-03-07 14:56:34",
+            "road": "Road 1",
+            "density": 69,
+            "vehicles": 34,
+            "pollution": 168,
+            "noise": 101
+        },
+        {
+            "id": 132,
+            "timestamp": "2026-03-07 14:56:39",
+            "road": "Road 1",
+            "density": 79,
+            "vehicles": 39,
+            "pollution": 193,
+            "noise": 106
+        },
+        {
+            "id": 133,
+            "timestamp": "2026-03-07 14:56:45",
+            "road": "Road 1",
+            "density": 76,
+            "vehicles": 38,
+            "pollution": 154,
+            "noise": 88
+        },
+        {
+            "id": 134,
+            "timestamp": "2026-03-07 14:56:51",
+            "road": "Road 1",
+            "density": 31,
+            "vehicles": 15,
+            "pollution": 106,
+            "noise": 71
+        },
+        {
+            "id": 135,
+            "timestamp": "2026-03-07 14:56:56",
+            "road": "Road 1",
+            "density": 52,
+            "vehicles": 26,
+            "pollution": 125,
+            "noise": 91
+        },
+        {
+            "id": 136,
+            "timestamp": "2026-03-07 14:57:01",
+            "road": "Road 1",
+            "density": 76,
+            "vehicles": 38,
+            "pollution": 176,
+            "noise": 92
+        },
+        {
+            "id": 137,
+            "timestamp": "2026-03-07 14:57:06",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 35,
+            "pollution": 174,
+            "noise": 100
+        },
+        {
+            "id": 138,
+            "timestamp": "2026-03-07 14:57:11",
+            "road": "Road 1",
+            "density": 15,
+            "vehicles": 7,
+            "pollution": 62,
+            "noise": 66
+        },
+        {
+            "id": 139,
+            "timestamp": "2026-03-07 14:57:16",
+            "road": "Road 1",
+            "density": 65,
+            "vehicles": 32,
+            "pollution": 152,
+            "noise": 86
+        },
+        {
+            "id": 140,
+            "timestamp": "2026-03-07 14:57:22",
+            "road": "Road 1",
+            "density": 73,
+            "vehicles": 36,
+            "pollution": 163,
+            "noise": 93
+        },
+        {
+            "id": 141,
+            "timestamp": "2026-03-07 14:57:27",
+            "road": "Road 1",
+            "density": 26,
+            "vehicles": 13,
+            "pollution": 56,
+            "noise": 80
+        },
+        {
+            "id": 142,
+            "timestamp": "2026-03-07 14:57:33",
+            "road": "Road 1",
+            "density": 36,
+            "vehicles": 18,
+            "pollution": 101,
+            "noise": 80
+        },
+        {
+            "id": 143,
+            "timestamp": "2026-03-07 14:57:39",
+            "road": "Road 1",
+            "density": 72,
+            "vehicles": 36,
+            "pollution": 147,
+            "noise": 96
+        },
+        {
+            "id": 144,
+            "timestamp": "2026-03-07 14:57:44",
+            "road": "Road 1",
+            "density": 49,
+            "vehicles": 24,
+            "pollution": 128,
+            "noise": 90
+        },
+        {
+            "id": 145,
+            "timestamp": "2026-03-07 14:57:50",
+            "road": "Road 1",
+            "density": 16,
+            "vehicles": 8,
+            "pollution": 44,
+            "noise": 69
+        },
+        {
+            "id": 146,
+            "timestamp": "2026-03-07 14:57:56",
+            "road": "Road 1",
+            "density": 18,
+            "vehicles": 9,
+            "pollution": 60,
+            "noise": 77
+        },
+        {
+            "id": 147,
+            "timestamp": "2026-03-07 14:58:02",
+            "road": "Road 1",
+            "density": 23,
+            "vehicles": 11,
+            "pollution": 60,
+            "noise": 67
+        },
+        {
+            "id": 148,
+            "timestamp": "2026-03-07 14:58:08",
+            "road": "Road 1",
+            "density": 40,
+            "vehicles": 20,
+            "pollution": 98,
+            "noise": 82
+        },
+        {
+            "id": 149,
+            "timestamp": "2026-03-07 14:58:14",
+            "road": "Road 1",
+            "density": 63,
+            "vehicles": 31,
+            "pollution": 164,
+            "noise": 85
+        },
+        {
+            "id": 150,
+            "timestamp": "2026-03-07 14:58:20",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 35,
+            "pollution": 174,
+            "noise": 86
+        },
+        {
+            "id": 151,
+            "timestamp": "2026-03-07 14:58:25",
+            "road": "Road 1",
+            "density": 42,
+            "vehicles": 21,
+            "pollution": 119,
+            "noise": 82
+        },
+        {
+            "id": 152,
+            "timestamp": "2026-03-07 14:58:30",
+            "road": "Road 1",
+            "density": 41,
+            "vehicles": 20,
+            "pollution": 101,
+            "noise": 76
+        },
+        {
+            "id": 153,
+            "timestamp": "2026-03-07 14:58:35",
+            "road": "Road 1",
+            "density": 80,
+            "vehicles": 40,
+            "pollution": 198,
+            "noise": 106
+        },
+        {
+            "id": 154,
+            "timestamp": "2026-03-07 14:58:41",
+            "road": "Road 1",
+            "density": 46,
+            "vehicles": 23,
+            "pollution": 92,
+            "noise": 91
+        },
+        {
+            "id": 155,
+            "timestamp": "2026-03-07 14:58:47",
+            "road": "Road 1",
+            "density": 49,
+            "vehicles": 24,
+            "pollution": 144,
+            "noise": 87
+        },
+        {
+            "id": 156,
+            "timestamp": "2026-03-07 14:58:52",
+            "road": "Road 1",
+            "density": 74,
+            "vehicles": 37,
+            "pollution": 151,
+            "noise": 90
+        },
+        {
+            "id": 157,
+            "timestamp": "2026-03-07 14:58:57",
+            "road": "Road 1",
+            "density": 32,
+            "vehicles": 16,
+            "pollution": 65,
+            "noise": 81
+        },
+        {
+            "id": 158,
+            "timestamp": "2026-03-07 14:59:03",
+            "road": "Road 1",
+            "density": 76,
+            "vehicles": 38,
+            "pollution": 158,
+            "noise": 104
+        },
+        {
+            "id": 159,
+            "timestamp": "2026-03-07 14:59:09",
+            "road": "Road 1",
+            "density": 25,
+            "vehicles": 12,
+            "pollution": 55,
+            "noise": 66
+        },
+        {
+            "id": 160,
+            "timestamp": "2026-03-07 14:59:15",
+            "road": "Road 1",
+            "density": 44,
+            "vehicles": 22,
+            "pollution": 121,
+            "noise": 87
+        },
+        {
+            "id": 161,
+            "timestamp": "2026-03-07 14:59:21",
+            "road": "Road 1",
+            "density": 31,
+            "vehicles": 15,
+            "pollution": 66,
+            "noise": 85
+        },
+        {
+            "id": 162,
+            "timestamp": "2026-03-07 14:59:26",
+            "road": "Road 1",
+            "density": 51,
+            "vehicles": 25,
+            "pollution": 130,
+            "noise": 85
+        },
+        {
+            "id": 163,
+            "timestamp": "2026-03-07 14:59:32",
+            "road": "Road 1",
+            "density": 45,
+            "vehicles": 22,
+            "pollution": 113,
+            "noise": 74
+        },
+        {
+            "id": 164,
+            "timestamp": "2026-03-07 14:59:37",
+            "road": "Road 1",
+            "density": 42,
+            "vehicles": 21,
+            "pollution": 130,
+            "noise": 72
+        },
+        {
+            "id": 165,
+            "timestamp": "2026-03-07 14:59:43",
+            "road": "Road 1",
+            "density": 15,
+            "vehicles": 7,
+            "pollution": 67,
+            "noise": 75
+        },
+        {
+            "id": 166,
+            "timestamp": "2026-03-07 14:59:49",
+            "road": "Road 1",
+            "density": 64,
+            "vehicles": 32,
+            "pollution": 130,
+            "noise": 89
+        },
+        {
+            "id": 167,
+            "timestamp": "2026-03-07 14:59:55",
+            "road": "Road 1",
+            "density": 79,
+            "vehicles": 39,
+            "pollution": 169,
+            "noise": 93
+        },
+        {
+            "id": 168,
+            "timestamp": "2026-03-07 15:00:01",
+            "road": "Road 1",
+            "density": 61,
+            "vehicles": 30,
+            "pollution": 165,
+            "noise": 88
+        },
+        {
+            "id": 169,
+            "timestamp": "2026-03-07 15:00:07",
+            "road": "Road 1",
+            "density": 73,
+            "vehicles": 36,
+            "pollution": 170,
+            "noise": 102
+        },
+        {
+            "id": 170,
+            "timestamp": "2026-03-07 15:00:13",
+            "road": "Road 1",
+            "density": 56,
+            "vehicles": 28,
+            "pollution": 134,
+            "noise": 94
+        },
+        {
+            "id": 171,
+            "timestamp": "2026-03-07 15:00:19",
+            "road": "Road 1",
+            "density": 30,
+            "vehicles": 15,
+            "pollution": 70,
+            "noise": 73
+        },
+        {
+            "id": 172,
+            "timestamp": "2026-03-07 15:00:25",
+            "road": "Road 1",
+            "density": 44,
+            "vehicles": 22,
+            "pollution": 103,
+            "noise": 86
+        },
+        {
+            "id": 173,
+            "timestamp": "2026-03-07 15:00:31",
+            "road": "Road 1",
+            "density": 28,
+            "vehicles": 14,
+            "pollution": 84,
+            "noise": 78
+        },
+        {
+            "id": 174,
+            "timestamp": "2026-03-07 15:00:37",
+            "road": "Road 1",
+            "density": 34,
+            "vehicles": 17,
+            "pollution": 78,
+            "noise": 83
+        },
+        {
+            "id": 175,
+            "timestamp": "2026-03-07 15:00:42",
+            "road": "Road 1",
+            "density": 12,
+            "vehicles": 6,
+            "pollution": 69,
+            "noise": 74
+        },
+        {
+            "id": 176,
+            "timestamp": "2026-03-07 15:00:48",
+            "road": "Road 1",
+            "density": 51,
+            "vehicles": 25,
+            "pollution": 134,
+            "noise": 93
+        },
+        {
+            "id": 177,
+            "timestamp": "2026-03-07 15:00:53",
+            "road": "Road 1",
+            "density": 25,
+            "vehicles": 12,
+            "pollution": 66,
+            "noise": 73
+        },
+        {
+            "id": 178,
+            "timestamp": "2026-03-07 15:00:59",
+            "road": "Road 1",
+            "density": 38,
+            "vehicles": 19,
+            "pollution": 76,
+            "noise": 78
+        },
+        {
+            "id": 179,
+            "timestamp": "2026-03-07 15:01:05",
+            "road": "Road 1",
+            "density": 75,
+            "vehicles": 37,
+            "pollution": 157,
+            "noise": 87
+        },
+        {
+            "id": 180,
+            "timestamp": "2026-03-07 15:01:11",
+            "road": "Road 1",
+            "density": 44,
+            "vehicles": 22,
+            "pollution": 94,
+            "noise": 74
+        },
+        {
+            "id": 181,
+            "timestamp": "2026-03-07 15:01:16",
+            "road": "Road 1",
+            "density": 41,
+            "vehicles": 20,
+            "pollution": 100,
+            "noise": 81
+        },
+        {
+            "id": 182,
+            "timestamp": "2026-03-07 15:01:22",
+            "road": "Road 1",
+            "density": 13,
+            "vehicles": 6,
+            "pollution": 29,
+            "noise": 72
+        },
+        {
+            "id": 183,
+            "timestamp": "2026-03-07 15:01:27",
+            "road": "Road 1",
+            "density": 28,
+            "vehicles": 14,
+            "pollution": 62,
+            "noise": 69
+        },
+        {
+            "id": 184,
+            "timestamp": "2026-03-07 15:01:33",
+            "road": "Road 1",
+            "density": 15,
+            "vehicles": 7,
+            "pollution": 31,
+            "noise": 64
+        },
+        {
+            "id": 185,
+            "timestamp": "2026-03-07 15:01:38",
+            "road": "Road 1",
+            "density": 24,
+            "vehicles": 12,
+            "pollution": 75,
+            "noise": 77
+        },
+        {
+            "id": 186,
+            "timestamp": "2026-03-07 15:01:43",
+            "road": "Road 1",
+            "density": 40,
+            "vehicles": 20,
+            "pollution": 82,
+            "noise": 89
+        },
+        {
+            "id": 187,
+            "timestamp": "2026-03-07 15:01:49",
+            "road": "Road 1",
+            "density": 61,
+            "vehicles": 30,
+            "pollution": 123,
+            "noise": 92
+        },
+        {
+            "id": 188,
+            "timestamp": "2026-03-07 15:01:54",
+            "road": "Road 1",
+            "density": 19,
+            "vehicles": 9,
+            "pollution": 40,
+            "noise": 73
+        },
+        {
+            "id": 189,
+            "timestamp": "2026-03-07 15:02:00",
+            "road": "Road 1",
+            "density": 57,
+            "vehicles": 28,
+            "pollution": 118,
+            "noise": 93
+        },
+        {
+            "id": 190,
+            "timestamp": "2026-03-07 15:02:06",
+            "road": "Road 1",
+            "density": 59,
+            "vehicles": 29,
+            "pollution": 146,
+            "noise": 85
+        },
+        {
+            "id": 191,
+            "timestamp": "2026-03-07 15:02:12",
+            "road": "Road 1",
+            "density": 45,
+            "vehicles": 22,
+            "pollution": 105,
+            "noise": 72
+        },
+        {
+            "id": 192,
+            "timestamp": "2026-03-07 15:02:17",
+            "road": "Road 1",
+            "density": 66,
+            "vehicles": 33,
+            "pollution": 179,
+            "noise": 89
+        },
+        {
+            "id": 193,
+            "timestamp": "2026-03-07 15:02:23",
+            "road": "Road 1",
+            "density": 45,
+            "vehicles": 22,
+            "pollution": 113,
+            "noise": 78
+        },
+        {
+            "id": 194,
+            "timestamp": "2026-03-07 15:02:29",
+            "road": "Road 1",
+            "density": 51,
+            "vehicles": 25,
+            "pollution": 113,
+            "noise": 83
+        },
+        {
+            "id": 195,
+            "timestamp": "2026-03-07 15:02:34",
+            "road": "Road 1",
+            "density": 79,
+            "vehicles": 39,
+            "pollution": 175,
+            "noise": 96
+        },
+        {
+            "id": 196,
+            "timestamp": "2026-03-07 15:02:39",
+            "road": "Road 1",
+            "density": 33,
+            "vehicles": 16,
+            "pollution": 84,
+            "noise": 79
+        },
+        {
+            "id": 197,
+            "timestamp": "2026-03-07 15:02:45",
+            "road": "Road 1",
+            "density": 62,
+            "vehicles": 31,
+            "pollution": 161,
+            "noise": 97
+        },
+        {
+            "id": 198,
+            "timestamp": "2026-03-07 15:02:50",
+            "road": "Road 1",
+            "density": 59,
+            "vehicles": 29,
+            "pollution": 126,
+            "noise": 89
+        },
+        {
+            "id": 199,
+            "timestamp": "2026-03-07 15:02:55",
+            "road": "Road 1",
+            "density": 73,
+            "vehicles": 36,
+            "pollution": 180,
+            "noise": 93
+        },
+        {
+            "id": 200,
+            "timestamp": "2026-03-07 15:03:01",
+            "road": "Road 1",
+            "density": 63,
+            "vehicles": 31,
+            "pollution": 158,
+            "noise": 82
+        },
+        {
+            "id": 201,
+            "timestamp": "2026-03-07 15:03:06",
+            "road": "Road 1",
+            "density": 34,
+            "vehicles": 17,
+            "pollution": 112,
+            "noise": 75
+        },
+        {
+            "id": 202,
+            "timestamp": "2026-03-07 15:03:11",
+            "road": "Road 1",
+            "density": 63,
+            "vehicles": 31,
+            "pollution": 170,
+            "noise": 99
+        },
+        {
+            "id": 203,
+            "timestamp": "2026-03-07 15:03:17",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 35,
+            "pollution": 145,
+            "noise": 86
+        },
+        {
+            "id": 204,
+            "timestamp": "2026-03-07 15:03:23",
+            "road": "Road 1",
+            "density": 17,
+            "vehicles": 8,
+            "pollution": 84,
+            "noise": 73
+        },
+        {
+            "id": 205,
+            "timestamp": "2026-03-07 15:03:28",
+            "road": "Road 1",
+            "density": 36,
+            "vehicles": 18,
+            "pollution": 118,
+            "noise": 72
+        },
+        {
+            "id": 206,
+            "timestamp": "2026-03-07 15:03:33",
+            "road": "Road 1",
+            "density": 16,
+            "vehicles": 8,
+            "pollution": 75,
+            "noise": 73
+        },
+        {
+            "id": 207,
+            "timestamp": "2026-03-07 15:03:38",
+            "road": "Road 1",
+            "density": 18,
+            "vehicles": 9,
+            "pollution": 84,
+            "noise": 78
+        },
+        {
+            "id": 208,
+            "timestamp": "2026-03-07 15:03:44",
+            "road": "Road 1",
+            "density": 19,
+            "vehicles": 9,
+            "pollution": 54,
+            "noise": 73
+        },
+        {
+            "id": 209,
+            "timestamp": "2026-03-07 15:03:50",
+            "road": "Road 1",
+            "density": 50,
+            "vehicles": 25,
+            "pollution": 117,
+            "noise": 90
+        },
+        {
+            "id": 210,
+            "timestamp": "2026-03-07 15:03:55",
+            "road": "Road 1",
+            "density": 57,
+            "vehicles": 28,
+            "pollution": 148,
+            "noise": 93
+        },
+        {
+            "id": 211,
+            "timestamp": "2026-03-07 15:04:00",
+            "road": "Road 1",
+            "density": 50,
+            "vehicles": 25,
+            "pollution": 137,
+            "noise": 94
+        },
+        {
+            "id": 212,
+            "timestamp": "2026-03-07 15:04:05",
+            "road": "Road 1",
+            "density": 50,
+            "vehicles": 25,
+            "pollution": 123,
+            "noise": 89
+        },
+        {
+            "id": 213,
+            "timestamp": "2026-03-07 15:04:11",
+            "road": "Road 1",
+            "density": 55,
+            "vehicles": 27,
+            "pollution": 149,
+            "noise": 82
+        },
+        {
+            "id": 214,
+            "timestamp": "2026-03-07 15:04:16",
+            "road": "Road 1",
+            "density": 60,
+            "vehicles": 30,
+            "pollution": 142,
+            "noise": 94
+        },
+        {
+            "id": 215,
+            "timestamp": "2026-03-07 15:04:21",
+            "road": "Road 1",
+            "density": 78,
+            "vehicles": 39,
+            "pollution": 163,
+            "noise": 96
+        },
+        {
+            "id": 216,
+            "timestamp": "2026-03-07 15:04:27",
+            "road": "Road 1",
+            "density": 73,
+            "vehicles": 36,
+            "pollution": 178,
+            "noise": 89
+        },
+        {
+            "id": 217,
+            "timestamp": "2026-03-07 15:04:33",
+            "road": "Road 1",
+            "density": 61,
+            "vehicles": 30,
+            "pollution": 122,
+            "noise": 83
+        },
+        {
+            "id": 218,
+            "timestamp": "2026-03-07 15:04:39",
+            "road": "Road 1",
+            "density": 74,
+            "vehicles": 37,
+            "pollution": 152,
+            "noise": 100
+        },
+        {
+            "id": 219,
+            "timestamp": "2026-03-07 15:04:44",
+            "road": "Road 1",
+            "density": 43,
+            "vehicles": 21,
+            "pollution": 95,
+            "noise": 74
+        },
+        {
+            "id": 220,
+            "timestamp": "2026-03-07 15:04:49",
+            "road": "Road 1",
+            "density": 65,
+            "vehicles": 32,
+            "pollution": 155,
+            "noise": 88
+        },
+        {
+            "id": 221,
+            "timestamp": "2026-03-07 15:04:54",
+            "road": "Road 1",
+            "density": 60,
+            "vehicles": 30,
+            "pollution": 152,
+            "noise": 91
+        },
+        {
+            "id": 222,
+            "timestamp": "2026-03-07 15:05:00",
+            "road": "Road 1",
+            "density": 32,
+            "vehicles": 16,
+            "pollution": 104,
+            "noise": 78
+        },
+        {
+            "id": 223,
+            "timestamp": "2026-03-07 15:05:05",
+            "road": "Road 1",
+            "density": 40,
+            "vehicles": 20,
+            "pollution": 92,
+            "noise": 79
+        },
+        {
+            "id": 224,
+            "timestamp": "2026-03-07 15:05:10",
+            "road": "Road 1",
+            "density": 24,
+            "vehicles": 12,
+            "pollution": 71,
+            "noise": 63
+        },
+        {
+            "id": 225,
+            "timestamp": "2026-03-07 15:05:16",
+            "road": "Road 1",
+            "density": 24,
+            "vehicles": 12,
+            "pollution": 70,
+            "noise": 70
+        },
+        {
+            "id": 226,
+            "timestamp": "2026-03-07 15:05:22",
+            "road": "Road 1",
+            "density": 55,
+            "vehicles": 27,
+            "pollution": 110,
+            "noise": 85
+        },
+        {
+            "id": 227,
+            "timestamp": "2026-03-07 15:05:28",
+            "road": "Road 1",
+            "density": 69,
+            "vehicles": 34,
+            "pollution": 148,
+            "noise": 86
+        },
+        {
+            "id": 228,
+            "timestamp": "2026-03-07 15:05:34",
+            "road": "Road 1",
+            "density": 70,
+            "vehicles": 35,
+            "pollution": 167,
+            "noise": 95
+        },
+        {
+            "id": 229,
+            "timestamp": "2026-03-07 15:05:40",
+            "road": "Road 1",
+            "density": 33,
+            "vehicles": 16,
+            "pollution": 84,
+            "noise": 78
+        },
+        {
+            "id": 230,
+            "timestamp": "2026-03-07 15:05:45",
+            "road": "Road 1",
+            "density": 23,
+            "vehicles": 11,
+            "pollution": 49,
+            "noise": 68
+        },
+        {
+            "id": 231,
+            "timestamp": "2026-03-07 15:05:51",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 35,
+            "pollution": 181,
+            "noise": 86
+        },
+        {
+            "id": 232,
+            "timestamp": "2026-03-07 15:08:41",
+            "road": "Road 1",
+            "density": 39,
+            "vehicles": 19,
+            "pollution": 123,
+            "noise": 88
+        },
+        {
+            "id": 233,
+            "timestamp": "2026-03-07 15:08:46",
+            "road": "Road 1",
+            "density": 50,
+            "vehicles": 25,
+            "pollution": 101,
+            "noise": 86
+        },
+        {
+            "id": 234,
+            "timestamp": "2026-03-07 15:08:52",
+            "road": "Road 1",
+            "density": 16,
+            "vehicles": 8,
+            "pollution": 38,
+            "noise": 63
+        },
+        {
+            "id": 235,
+            "timestamp": "2026-03-07 15:08:57",
+            "road": "Road 1",
+            "density": 31,
+            "vehicles": 15,
+            "pollution": 77,
+            "noise": 72
+        },
+        {
+            "id": 236,
+            "timestamp": "2026-03-07 15:09:03",
+            "road": "Road 1",
+            "density": 75,
+            "vehicles": 37,
+            "pollution": 162,
+            "noise": 106
+        },
+        {
+            "id": 237,
+            "timestamp": "2026-03-07 15:09:15",
+            "road": "Road 1",
+            "density": 58,
+            "vehicles": 29,
+            "pollution": 124,
+            "noise": 86
+        },
+        {
+            "id": 238,
+            "timestamp": "2026-03-07 15:09:20",
+            "road": "Road 1",
+            "density": 51,
+            "vehicles": 25,
+            "pollution": 129,
+            "noise": 84
+        },
+        {
+            "id": 239,
+            "timestamp": "2026-03-07 15:09:25",
+            "road": "Road 1",
+            "density": 79,
+            "vehicles": 39,
+            "pollution": 180,
+            "noise": 105
+        },
+        {
+            "id": 240,
+            "timestamp": "2026-03-07 15:09:31",
+            "road": "Road 1",
+            "density": 59,
+            "vehicles": 29,
+            "pollution": 118,
+            "noise": 95
+        },
+        {
+            "id": 241,
+            "timestamp": "2026-03-07 15:09:37",
+            "road": "Road 1",
+            "density": 38,
+            "vehicles": 19,
+            "pollution": 89,
+            "noise": 79
+        },
+        {
+            "id": 242,
+            "timestamp": "2026-03-07 15:09:42",
+            "road": "Road 1",
+            "density": 28,
+            "vehicles": 14,
+            "pollution": 99,
+            "noise": 73
+        },
+        {
+            "id": 243,
+            "timestamp": "2026-03-07 15:09:48",
+            "road": "Road 1",
+            "density": 53,
+            "vehicles": 26,
+            "pollution": 119,
+            "noise": 88
+        },
+        {
+            "id": 244,
+            "timestamp": "2026-03-07 15:09:54",
+            "road": "Road 1",
+            "density": 21,
+            "vehicles": 10,
+            "pollution": 65,
+            "noise": 70
+        },
+        {
+            "id": 245,
+            "timestamp": "2026-03-07 15:09:59",
+            "road": "Road 1",
+            "density": 81,
+            "vehicles": 40,
+            "pollution": 176,
+            "noise": 103
+        },
+        {
+            "id": 246,
+            "timestamp": "2026-03-07 15:10:04",
+            "road": "Road 1",
+            "density": 26,
+            "vehicles": 13,
+            "pollution": 80,
+            "noise": 63
+        },
+        {
+            "id": 247,
+            "timestamp": "2026-03-07 15:10:10",
+            "road": "Road 1",
+            "density": 84,
+            "vehicles": 42,
+            "pollution": 189,
+            "noise": 107
+        },
+        {
+            "id": 248,
+            "timestamp": "2026-03-07 15:10:15",
+            "road": "Road 1",
+            "density": 73,
+            "vehicles": 36,
+            "pollution": 151,
+            "noise": 104
+        },
+        {
+            "id": 249,
+            "timestamp": "2026-03-07 15:10:20",
+            "road": "Road 1",
+            "density": 70,
+            "vehicles": 35,
+            "pollution": 177,
+            "noise": 94
+        },
+        {
+            "id": 250,
+            "timestamp": "2026-03-07 15:10:26",
+            "road": "Road 1",
+            "density": 46,
+            "vehicles": 23,
+            "pollution": 120,
+            "noise": 77
+        },
+        {
+            "id": 251,
+            "timestamp": "2026-03-07 15:10:31",
+            "road": "Road 1",
+            "density": 26,
+            "vehicles": 13,
+            "pollution": 79,
+            "noise": 65
+        },
+        {
+            "id": 252,
+            "timestamp": "2026-03-07 15:10:37",
+            "road": "Road 1",
+            "density": 44,
+            "vehicles": 22,
+            "pollution": 116,
+            "noise": 74
+        },
+        {
+            "id": 253,
+            "timestamp": "2026-03-07 15:10:42",
+            "road": "Road 1",
+            "density": 43,
+            "vehicles": 21,
+            "pollution": 119,
+            "noise": 76
+        },
+        {
+            "id": 254,
+            "timestamp": "2026-03-07 15:10:48",
+            "road": "Road 1",
+            "density": 59,
+            "vehicles": 29,
+            "pollution": 124,
+            "noise": 90
+        },
+        {
+            "id": 255,
+            "timestamp": "2026-03-07 15:10:55",
+            "road": "Road 1",
+            "density": 34,
+            "vehicles": 17,
+            "pollution": 72,
+            "noise": 77
+        },
+        {
+            "id": 256,
+            "timestamp": "2026-03-07 15:11:00",
+            "road": "Road 1",
+            "density": 37,
+            "vehicles": 18,
+            "pollution": 114,
+            "noise": 86
+        },
+        {
+            "id": 257,
+            "timestamp": "2026-03-07 15:11:05",
+            "road": "Road 1",
+            "density": 10,
+            "vehicles": 5,
+            "pollution": 33,
+            "noise": 70
+        },
+        {
+            "id": 258,
+            "timestamp": "2026-03-07 15:11:11",
+            "road": "Road 1",
+            "density": 16,
+            "vehicles": 8,
+            "pollution": 43,
+            "noise": 70
+        },
+        {
+            "id": 259,
+            "timestamp": "2026-03-07 15:11:16",
+            "road": "Road 1",
+            "density": 13,
+            "vehicles": 6,
+            "pollution": 50,
+            "noise": 71
+        },
+        {
+            "id": 260,
+            "timestamp": "2026-03-07 15:11:21",
+            "road": "Road 1",
+            "density": 81,
+            "vehicles": 40,
+            "pollution": 212,
+            "noise": 97
+        },
+        {
+            "id": 261,
+            "timestamp": "2026-03-07 15:11:26",
+            "road": "Road 1",
+            "density": 72,
+            "vehicles": 36,
+            "pollution": 154,
+            "noise": 100
+        },
+        {
+            "id": 262,
+            "timestamp": "2026-03-07 15:11:32",
+            "road": "Road 1",
+            "density": 18,
+            "vehicles": 9,
+            "pollution": 84,
+            "noise": 63
+        },
+        {
+            "id": 263,
+            "timestamp": "2026-03-07 15:11:37",
+            "road": "Road 1",
+            "density": 21,
+            "vehicles": 10,
+            "pollution": 81,
+            "noise": 62
+        },
+        {
+            "id": 264,
+            "timestamp": "2026-03-07 15:11:42",
+            "road": "Road 1",
+            "density": 15,
+            "vehicles": 7,
+            "pollution": 71,
+            "noise": 57
+        },
+        {
+            "id": 265,
+            "timestamp": "2026-03-07 15:11:47",
+            "road": "Road 1",
+            "density": 52,
+            "vehicles": 26,
+            "pollution": 118,
+            "noise": 80
+        },
+        {
+            "id": 266,
+            "timestamp": "2026-03-07 15:11:53",
+            "road": "Road 1",
+            "density": 28,
+            "vehicles": 14,
+            "pollution": 83,
+            "noise": 67
+        },
+        {
+            "id": 267,
+            "timestamp": "2026-03-07 15:11:58",
+            "road": "Road 1",
+            "density": 37,
+            "vehicles": 18,
+            "pollution": 88,
+            "noise": 84
+        },
+        {
+            "id": 268,
+            "timestamp": "2026-03-07 15:12:53",
+            "road": "Road 1",
+            "density": 18,
+            "vehicles": 9,
+            "pollution": 62,
+            "noise": 63
+        },
+        {
+            "id": 269,
+            "timestamp": "2026-03-07 15:12:58",
+            "road": "Road 1",
+            "density": 30,
+            "vehicles": 15,
+            "pollution": 99,
+            "noise": 66
+        },
+        {
+            "id": 270,
+            "timestamp": "2026-03-07 15:13:03",
+            "road": "Road 1",
+            "density": 64,
+            "vehicles": 32,
+            "pollution": 165,
+            "noise": 91
+        },
+        {
+            "id": 271,
+            "timestamp": "2026-03-07 15:13:08",
+            "road": "Road 1",
+            "density": 15,
+            "vehicles": 7,
+            "pollution": 36,
+            "noise": 72
+        },
+        {
+            "id": 272,
+            "timestamp": "2026-03-07 15:13:14",
+            "road": "Road 1",
+            "density": 39,
+            "vehicles": 19,
+            "pollution": 98,
+            "noise": 77
+        },
+        {
+            "id": 273,
+            "timestamp": "2026-03-07 15:13:20",
+            "road": "Road 1",
+            "density": 68,
+            "vehicles": 34,
+            "pollution": 177,
+            "noise": 97
+        },
+        {
+            "id": 274,
+            "timestamp": "2026-03-07 15:13:25",
+            "road": "Road 1",
+            "density": 14,
+            "vehicles": 7,
+            "pollution": 49,
+            "noise": 65
+        },
+        {
+            "id": 275,
+            "timestamp": "2026-03-07 15:13:31",
+            "road": "Road 1",
+            "density": 51,
+            "vehicles": 25,
+            "pollution": 105,
+            "noise": 80
+        },
+        {
+            "id": 276,
+            "timestamp": "2026-03-07 15:13:37",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 35,
+            "pollution": 189,
+            "noise": 86
+        },
+        {
+            "id": 277,
+            "timestamp": "2026-03-07 15:13:42",
+            "road": "Road 1",
+            "density": 12,
+            "vehicles": 6,
+            "pollution": 61,
+            "noise": 75
+        },
+        {
+            "id": 278,
+            "timestamp": "2026-03-07 15:13:48",
+            "road": "Road 1",
+            "density": 77,
+            "vehicles": 38,
+            "pollution": 183,
+            "noise": 89
+        },
+        {
+            "id": 279,
+            "timestamp": "2026-03-07 15:13:53",
+            "road": "Road 1",
+            "density": 71,
+            "vehicles": 35,
+            "pollution": 159,
+            "noise": 100
+        },
+        {
+            "id": 280,
+            "timestamp": "2026-03-07 15:13:58",
+            "road": "Road 1",
+            "density": 44,
+            "vehicles": 22,
+            "pollution": 138,
+            "noise": 72
+        },
+        {
+            "id": 281,
+            "timestamp": "2026-03-07 15:14:04",
+            "road": "Road 1",
+            "density": 34,
+            "vehicles": 17,
+            "pollution": 98,
+            "noise": 73
+        },
+        {
+            "id": 282,
+            "timestamp": "2026-03-07 15:14:09",
+            "road": "Road 1",
+            "density": 22,
+            "vehicles": 11,
+            "pollution": 46,
+            "noise": 74
+        },
+        {
+            "id": 283,
+            "timestamp": "2026-03-07 15:14:14",
+            "road": "Road 1",
+            "density": 49,
+            "vehicles": 24,
+            "pollution": 147,
+            "noise": 85
+        },
+        {
+            "id": 284,
+            "timestamp": "2026-03-07 15:14:20",
+            "road": "Road 1",
+            "density": 22,
+            "vehicles": 11,
+            "pollution": 67,
+            "noise": 63
+        },
+        {
+            "id": 285,
+            "timestamp": "2026-03-07 15:14:25",
+            "road": "Road 1",
+            "density": 21,
+            "vehicles": 10,
+            "pollution": 44,
+            "noise": 73
+        },
+        {
+            "id": 286,
+            "timestamp": "2026-03-07 15:14:30",
+            "road": "Road 1",
+            "density": 57,
+            "vehicles": 28,
+            "pollution": 125,
+            "noise": 93
+        },
+        {
+            "id": 287,
+            "timestamp": "2026-03-07 15:14:35",
+            "road": "Road 1",
+            "density": 33,
+            "vehicles": 16,
+            "pollution": 103,
+            "noise": 83
+        },
+        {
+            "id": 288,
+            "timestamp": "2026-03-07 15:14:41",
+            "road": "Road 1",
+            "density": 45,
+            "vehicles": 22,
+            "pollution": 109,
+            "noise": 80
+        }
+    ]
+}
